@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3B7290D374900E18516 /* AppDelegate.swift */; };
 		DCD4F3BA290D374900E18516 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3B9290D374900E18516 /* SceneDelegate.swift */; };
-		DCD4F3BC290D374900E18516 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3BB290D374900E18516 /* ViewController.swift */; };
+		DCD4F3BC290D374900E18516 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3BB290D374900E18516 /* MainViewController.swift */; };
 		DCD4F3BF290D374900E18516 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD4F3BD290D374900E18516 /* Main.storyboard */; };
 		DCD4F3C2290D374900E18516 /* Grandpax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3C0290D374900E18516 /* Grandpax.xcdatamodeld */; };
 		DCD4F3C4290D374D00E18516 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCD4F3C3290D374D00E18516 /* Assets.xcassets */; };
 		DCD4F3C7290D374D00E18516 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCD4F3C5290D374D00E18516 /* LaunchScreen.storyboard */; };
+		DCD4F3D0290D63AD00E18516 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3CF290D63AD00E18516 /* Colors.swift */; };
+		DCD4F3D2290D6F9D00E18516 /* CommonStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DCD4F3B4290D374900E18516 /* Grandpax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grandpax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD4F3B7290D374900E18516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCD4F3B9290D374900E18516 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DCD4F3BB290D374900E18516 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DCD4F3BB290D374900E18516 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DCD4F3BE290D374900E18516 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCD4F3C1290D374900E18516 /* Grandpax.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Grandpax.xcdatamodel; sourceTree = "<group>"; };
 		DCD4F3C3290D374D00E18516 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCD4F3C6290D374D00E18516 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DCD4F3C8290D374D00E18516 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DCD4F3CF290D63AD00E18516 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStrings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +62,10 @@
 		DCD4F3B6290D374900E18516 /* Grandpax */ = {
 			isa = PBXGroup;
 			children = (
+				DCD4F3CE290D639300E18516 /* Utils */,
 				DCD4F3B7290D374900E18516 /* AppDelegate.swift */,
 				DCD4F3B9290D374900E18516 /* SceneDelegate.swift */,
-				DCD4F3BB290D374900E18516 /* ViewController.swift */,
+				DCD4F3BB290D374900E18516 /* MainViewController.swift */,
 				DCD4F3BD290D374900E18516 /* Main.storyboard */,
 				DCD4F3C3290D374D00E18516 /* Assets.xcassets */,
 				DCD4F3C5290D374D00E18516 /* LaunchScreen.storyboard */,
@@ -68,6 +73,15 @@
 				DCD4F3C0290D374900E18516 /* Grandpax.xcdatamodeld */,
 			);
 			path = Grandpax;
+			sourceTree = "<group>";
+		};
+		DCD4F3CE290D639300E18516 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DCD4F3CF290D63AD00E18516 /* Colors.swift */,
+				DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,10 +155,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCD4F3BC290D374900E18516 /* ViewController.swift in Sources */,
+				DCD4F3BC290D374900E18516 /* MainViewController.swift in Sources */,
+				DCD4F3D0290D63AD00E18516 /* Colors.swift in Sources */,
 				DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */,
 				DCD4F3C2290D374900E18516 /* Grandpax.xcdatamodeld in Sources */,
 				DCD4F3BA290D374900E18516 /* SceneDelegate.swift in Sources */,
+				DCD4F3D2290D6F9D00E18516 /* CommonStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
