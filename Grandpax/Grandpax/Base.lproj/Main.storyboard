@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,20 +19,79 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grandpax" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggc-vD-pyb">
-                                <rect key="frame" x="122.66666666666669" y="111" width="145" height="42"/>
+                                <rect key="frame" x="122.66666666666667" y="111" width="144.66666666666663" height="42"/>
                                 <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="32"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="Lal-1k-Um3" userLabel="Start Tracking Button">
+                                <rect key="frame" x="145" y="346.66666666666669" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Lal-1k-Um3" secondAttribute="height" multiplier="1:1" id="Khc-IR-ffX"/>
+                                    <constraint firstAttribute="height" constant="100" id="nR2-Wh-C17"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="plus.circle" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="72"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStartTrackingButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8k1-4m-qyB"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start tracking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wH-8A-cRl">
+                                <rect key="frame" x="134.33333333333334" y="470.66666666666669" width="121.66666666666666" height="23.666666666666686"/>
+                                <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-16" translatesAutoresizingMaskIntoConstraints="NO" id="THp-mx-zQ1">
+                                <rect key="frame" x="48" y="526.33333333333337" width="294" height="251.66666666666663"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4qn-1E-47f">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="133.66666666666666"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="gobackward" catalog="system" title="Previous" imagePadding="8" cornerStyle="small">
+                                            <backgroundConfiguration key="background" strokeOutset="-8"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onPreviousButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EhW-SD-BZp"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U3k-88-QQK">
+                                        <rect key="frame" x="0.0" y="117.66666666666663" width="294" height="134"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system" title="Settings" imagePadding="8" cornerStyle="small">
+                                            <backgroundConfiguration key="background" strokeOutset="-8"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onSettingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7If-Pr-bdo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2wH-8A-cRl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0Ki-Qd-VpL"/>
+                            <constraint firstItem="2wH-8A-cRl" firstAttribute="top" secondItem="Lal-1k-Um3" secondAttribute="bottom" constant="24" id="AFM-mg-gY7"/>
+                            <constraint firstItem="THp-mx-zQ1" firstAttribute="top" secondItem="2wH-8A-cRl" secondAttribute="bottom" constant="32" id="EX3-SU-Qwu"/>
                             <constraint firstItem="ggc-vD-pyb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="LoS-ge-6I0"/>
                             <constraint firstItem="ggc-vD-pyb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="b6H-NN-LUb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="THp-mx-zQ1" secondAttribute="bottom" constant="32" id="dfe-aH-uGF"/>
+                            <constraint firstItem="THp-mx-zQ1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-48" id="iXy-4x-Orc"/>
+                            <constraint firstItem="THp-mx-zQ1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="wLN-1k-6Ev"/>
+                            <constraint firstItem="Lal-1k-Um3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-32" id="xG5-zm-Jwn"/>
+                            <constraint firstItem="Lal-1k-Um3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xTW-gD-oiY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buttonsStackView" destination="THp-mx-zQ1" id="sZV-Kl-kkG"/>
+                        <outlet property="previousButton" destination="4qn-1E-47f" id="Kay-ej-leb"/>
+                        <outlet property="settingsButton" destination="U3k-88-QQK" id="Rap-0u-4Q3"/>
+                        <outlet property="startTrackingButton" destination="Lal-1k-Um3" id="uyz-4l-Iww"/>
+                        <outlet property="startTrackingLabel" destination="2wH-8A-cRl" id="idB-0p-V2v"/>
                         <outlet property="titleLabel" destination="ggc-vD-pyb" id="0WI-nW-X7W"/>
                     </connections>
                 </viewController>
@@ -41,6 +101,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
+        <image name="gobackward" catalog="system" width="119" height="128"/>
+        <image name="plus.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
