@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class MainViewController: UIViewController {
     
@@ -21,7 +22,8 @@ class MainViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func onStartTrackingButtonPressed(_ sender: Any) {
-        print(#function)
+        let trackViewController = UIHostingController(rootView: TrackView())
+        present(trackViewController, animated: true)
     }
     @IBAction func onPreviousButtonPressed(_ sender: Any) {
         print(#function)

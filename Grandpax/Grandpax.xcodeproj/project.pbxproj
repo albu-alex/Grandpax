@@ -18,6 +18,10 @@
 		DCD4F3D2290D6F9D00E18516 /* CommonStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */; };
 		DCD4F3D5290E711300E18516 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3D4290E711300E18516 /* UIView+Extensions.swift */; };
 		DCD4F3D7290E7FCB00E18516 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */; };
+		DCEE27BA291663A400F6BDD4 /* MKMapView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */; };
+		DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27BF29166D2600F6BDD4 /* TrackView.swift */; };
+		DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27C129167A0200F6BDD4 /* ActionButton.swift */; };
+		DCEE27C529167CB000F6BDD4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27C429167CB000F6BDD4 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStrings.swift; sourceTree = "<group>"; };
 		DCD4F3D4290E711300E18516 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extensions.swift"; sourceTree = "<group>"; };
+		DCEE27BF29166D2600F6BDD4 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		DCEE27C129167A0200F6BDD4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		DCEE27C429167CB000F6BDD4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +55,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC3FC46A2911291500F482C8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DCD4F3BD290D374900E18516 /* Main.storyboard */,
+				DCD4F3BB290D374900E18516 /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		DCD4F3AB290D374900E18516 = {
 			isa = PBXGroup;
 			children = (
@@ -66,16 +83,12 @@
 		DCD4F3B6290D374900E18516 /* Grandpax */ = {
 			isa = PBXGroup;
 			children = (
+				DCEE27C329167CA000F6BDD4 /* Service */,
+				DCEE27BE29166CF900F6BDD4 /* SwiftUI */,
+				DCD4F3C8290D374D00E18516 /* Info.plist */,
+				DC3FC46A2911291500F482C8 /* ViewController */,
 				DCD4F3D3290E710100E18516 /* Extensions */,
 				DCD4F3CE290D639300E18516 /* Utils */,
-				DCD4F3B7290D374900E18516 /* AppDelegate.swift */,
-				DCD4F3B9290D374900E18516 /* SceneDelegate.swift */,
-				DCD4F3BB290D374900E18516 /* MainViewController.swift */,
-				DCD4F3BD290D374900E18516 /* Main.storyboard */,
-				DCD4F3C3290D374D00E18516 /* Assets.xcassets */,
-				DCD4F3C5290D374D00E18516 /* LaunchScreen.storyboard */,
-				DCD4F3C8290D374D00E18516 /* Info.plist */,
-				DCD4F3C0290D374900E18516 /* Grandpax.xcdatamodeld */,
 			);
 			path = Grandpax;
 			sourceTree = "<group>";
@@ -83,6 +96,11 @@
 		DCD4F3CE290D639300E18516 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				DCD4F3C0290D374900E18516 /* Grandpax.xcdatamodeld */,
+				DCD4F3C3290D374D00E18516 /* Assets.xcassets */,
+				DCD4F3C5290D374D00E18516 /* LaunchScreen.storyboard */,
+				DCD4F3B7290D374900E18516 /* AppDelegate.swift */,
+				DCD4F3B9290D374900E18516 /* SceneDelegate.swift */,
 				DCD4F3CF290D63AD00E18516 /* Colors.swift */,
 				DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */,
 				DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */,
@@ -94,8 +112,26 @@
 			isa = PBXGroup;
 			children = (
 				DCD4F3D4290E711300E18516 /* UIView+Extensions.swift */,
+				DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCEE27BE29166CF900F6BDD4 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE27BF29166D2600F6BDD4 /* TrackView.swift */,
+				DCEE27C129167A0200F6BDD4 /* ActionButton.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		DCEE27C329167CA000F6BDD4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				DCEE27C429167CB000F6BDD4 /* LocationManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,9 +207,13 @@
 			files = (
 				DCD4F3D5290E711300E18516 /* UIView+Extensions.swift in Sources */,
 				DCD4F3BC290D374900E18516 /* MainViewController.swift in Sources */,
+				DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */,
+				DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */,
 				DCD4F3D0290D63AD00E18516 /* Colors.swift in Sources */,
 				DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */,
+				DCEE27BA291663A400F6BDD4 /* MKMapView+Extensions.swift in Sources */,
 				DCD4F3C2290D374900E18516 /* Grandpax.xcdatamodeld in Sources */,
+				DCEE27C529167CB000F6BDD4 /* LocationManager.swift in Sources */,
 				DCD4F3BA290D374900E18516 /* SceneDelegate.swift in Sources */,
 				DCD4F3D7290E7FCB00E18516 /* CornerRadius.swift in Sources */,
 				DCD4F3D2290D6F9D00E18516 /* CommonStrings.swift in Sources */,
