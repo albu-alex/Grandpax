@@ -37,6 +37,9 @@ struct TrackView: View {
                 .onAppear {
                     viewModel.startLocationsServices()
                 }
+            StatisticsView()
+                .offset(y: 550)
+                .frame(maxHeight: 100)
         }
         .shadow(color: Color(Colors.shadow) ,radius: 30, y: 25)
     }
