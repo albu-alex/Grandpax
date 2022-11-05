@@ -14,27 +14,8 @@ struct TrackView: View {
     @Environment(\.presentationMode) var presentationMode
     
     // MARK: - States
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(
-            latitude: 44.8683,
-            longitude: 13.8481),
-        span: MKCoordinateSpan(
-            latitudeDelta: 0.03,
-            longitudeDelta: 0.03)
-    )
-    @StateObject var locationManager = LocationManager()
-    
-    // MARK: - Properties
-    
-    private var currentLocation: CLLocation? {
-        locationManager.lastLocation
-    }
-    private var userLatitude: Double {
-        currentLocation?.coordinate.latitude ?? 0
-    }
-    private var userLongitude: Double {
-        currentLocation?.coordinate.longitude ?? 0
-    }
+    @StateObject private var viewModel = TrackViewModel()
+    @State private var trackingMode: MapUserTrackingMode = .follow
     
     // MARK: - Lifecycle
     
@@ -50,13 +31,14 @@ struct TrackView: View {
             .frame(maxHeight: 60)
             .background(Color(Colors.white).opacity(0.5))
             .zIndex(8)
-            Map(coordinateRegion: $region, showsUserLocation: true)
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: $trackingMode)
                 .edgesIgnoringSafeArea(.bottom)
+                .tint(Color(Colors.strongGreen))
+                .onAppear {
+                    viewModel.startLocationsServices()
+                }
         }
         .shadow(color: Color(Colors.shadow) ,radius: 30, y: 25)
-        .onChange(of: currentLocation) { newValue in
-            region.center = CLLocationCoordinate2D(latitude: userLatitude, longitude: userLongitude)
-        }
     }
 }
 

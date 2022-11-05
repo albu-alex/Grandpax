@@ -24,7 +24,7 @@ struct ActionButton: View {
         Button(action: action) {
             image
         }
-        .foregroundColor(Color(Colors.strongGreen))
+        .foregroundColor(AppDelegate.isDarkModeEnabled ? Color(Colors.white) : .black)
         .padding()
     }
 }
