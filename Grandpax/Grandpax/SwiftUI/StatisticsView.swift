@@ -13,6 +13,21 @@ struct StatisticsView: View {
     // MARK: - Bindings
     
     @Binding var currentAcceleration: CMAcceleration
+    @Binding var maximumAcceleration: CMAcceleration
+    
+    // MARK: - Properties
+    
+    private var accelerationCurrent: Double {
+        abs(currentAcceleration.x) +
+        abs(currentAcceleration.y) +
+        abs(currentAcceleration.z)
+    }
+    
+    private var accelerationMax: Double {
+        abs(maximumAcceleration.x) +
+        abs(maximumAcceleration.y) +
+        abs(maximumAcceleration.z)
+    }
     
     var body: some View {
         VStack {
@@ -35,7 +50,7 @@ struct StatisticsView: View {
             HStack {
                 Text("Current G-Force")
                     .bold()
-                Text("\(currentAcceleration.x + currentAcceleration.y + currentAcceleration.z)" + " G")
+                Text(String(format: "%.2f", accelerationCurrent) + " G")
             }
             .padding(.horizontal, 32)
             .padding(.vertical)
@@ -43,7 +58,7 @@ struct StatisticsView: View {
             HStack {
                 Text("Max G-Force")
                     .bold()
-                Text("2 G")
+                Text(String(format: "%.2f", accelerationMax) + " G")
             }
             .padding(.horizontal, 32)
             .padding(.bottom)
@@ -59,6 +74,6 @@ struct StatisticsView: View {
 
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticsView(currentAcceleration: .constant(CMAcceleration()))
+        StatisticsView(currentAcceleration: .constant(CMAcceleration()), maximumAcceleration: .constant(CMAcceleration()))
     }
 }

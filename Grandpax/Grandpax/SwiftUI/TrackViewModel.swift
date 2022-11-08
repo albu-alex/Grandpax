@@ -30,16 +30,15 @@ final class TrackViewModel: NSObject, ObservableObject {
             longitudeDelta: 0.005)
     )
     @Published var acceleration = CMAcceleration()
-//    @Published var maximumAcceleration = CMAcceleration()
+    @Published var maximumAcceleration = CMAcceleration()
     
     // MARK: - Methods
     
-    func deallocateManagers(completion: @escaping (() -> Void)) {
+    func deallocateManagers() {
         locationManager?.stopUpdatingLocation()
         motionManager?.stopAccelerometerUpdates()
         locationManager = nil
         motionManager = nil
-        completion()
     }
     
     func startLocationsServices() {
@@ -54,11 +53,13 @@ final class TrackViewModel: NSObject, ObservableObject {
         let motionManager = CMMotionManager()
         // Make sure the accelerometer hardware is available.
         guard motionManager.isAccelerometerAvailable else { return }
-        motionManager.accelerometerUpdateInterval = 1.0 / 60.0  // 60 Hz
+        motionManager.accelerometerUpdateInterval = 0.5
         motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
             guard let acceleration = data?.acceleration else { return }
             self.acceleration = acceleration
+            if acceleration.isGreater(than: self.maximumAcceleration) { self.maximumAcceleration = acceleration }
         }
+        self.motionManager = motionManager
     }
     
     private func checkLocationAuthorization() {

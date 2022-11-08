@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB12916C475000B5046 /* TrackViewModel.swift */; };
 		DC133DB4291709C0000B5046 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB3291709C0000B5046 /* StatisticsView.swift */; };
+		DC96DB56291AEFDA00688A91 /* CMAcceleration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */; };
 		DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3B7290D374900E18516 /* AppDelegate.swift */; };
 		DCD4F3BA290D374900E18516 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3B9290D374900E18516 /* SceneDelegate.swift */; };
 		DCD4F3BC290D374900E18516 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3BB290D374900E18516 /* MainViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		DC133DB12916C475000B5046 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		DC133DB3291709C0000B5046 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+Extensions.swift"; sourceTree = "<group>"; };
 		DCD4F3B4290D374900E18516 /* Grandpax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grandpax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD4F3B7290D374900E18516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCD4F3B9290D374900E18516 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 			children = (
 				DCD4F3D4290E711300E18516 /* UIView+Extensions.swift */,
 				DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */,
+				DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */,
 				DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */,
 				DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */,
+				DC96DB56291AEFDA00688A91 /* CMAcceleration+Extensions.swift in Sources */,
 				DC133DB4291709C0000B5046 /* StatisticsView.swift in Sources */,
 				DCD4F3D0290D63AD00E18516 /* Colors.swift in Sources */,
 				DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */,
