@@ -24,7 +24,9 @@ struct TrackView: View {
             HStack {
                 Spacer()
                 ActionButton(image: Image(systemName: "xmark")) {
-                    presentationMode.wrappedValue.dismiss()
+                    viewModel.deallocateManagers() {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
                 .padding(.horizontal)
             }
@@ -36,8 +38,9 @@ struct TrackView: View {
                 .tint(Color(Colors.strongGreen))
                 .onAppear {
                     viewModel.startLocationsServices()
+                    viewModel.startAccelerometer()
                 }
-            StatisticsView()
+            StatisticsView(currentAcceleration: $viewModel.acceleration)
                 .offset(y: 550)
                 .frame(maxHeight: 100)
         }

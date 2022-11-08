@@ -6,8 +6,14 @@
 //
 
 import SwiftUI
+import CoreMotion
 
 struct StatisticsView: View {
+    
+    // MARK: - Bindings
+    
+    @Binding var currentAcceleration: CMAcceleration
+    
     var body: some View {
         VStack {
             HStack {
@@ -29,7 +35,7 @@ struct StatisticsView: View {
             HStack {
                 Text("Current G-Force")
                     .bold()
-                Text("0.8 G")
+                Text("\(currentAcceleration.x + currentAcceleration.y + currentAcceleration.z)" + " G")
             }
             .padding(.horizontal, 32)
             .padding(.vertical)
@@ -53,6 +59,6 @@ struct StatisticsView: View {
 
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticsView()
+        StatisticsView(currentAcceleration: .constant(CMAcceleration()))
     }
 }
