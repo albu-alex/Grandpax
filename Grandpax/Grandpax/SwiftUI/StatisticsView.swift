@@ -14,6 +14,8 @@ struct StatisticsView: View {
     
     @Binding var currentAcceleration: CMAcceleration
     @Binding var maximumAcceleration: CMAcceleration
+    @Binding var currentSpeed: Double
+    @Binding var maximumSpeed: Double
     
     // MARK: - Properties
     
@@ -34,16 +36,18 @@ struct StatisticsView: View {
             HStack {
                 Text("Current speed")
                     .bold()
-                Text("4 KM/H")
+                Text(String(format: "%.2f", currentSpeed) + " km/h")
             }
+            .foregroundColor(.black)
             .padding(.horizontal, 32)
             .padding(.top)
             Spacer()
             HStack {
-                Text("Max speed")
+                Text("Top speed")
                     .bold()
-                Text("20 KM/H")
+                Text(String(format: "%.2f", maximumSpeed) + " km/h")
             }
+            .foregroundColor(.black)
             .padding(.horizontal, 32)
             .padding(.top)
             Spacer()
@@ -52,6 +56,7 @@ struct StatisticsView: View {
                     .bold()
                 Text(String(format: "%.2f", accelerationCurrent) + " G")
             }
+            .foregroundColor(.black)
             .padding(.horizontal, 32)
             .padding(.vertical)
             Spacer()
@@ -60,6 +65,7 @@ struct StatisticsView: View {
                     .bold()
                 Text(String(format: "%.2f", accelerationMax) + " G")
             }
+            .foregroundColor(.black)
             .padding(.horizontal, 32)
             .padding(.bottom)
         }
@@ -74,6 +80,10 @@ struct StatisticsView: View {
 
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticsView(currentAcceleration: .constant(CMAcceleration()), maximumAcceleration: .constant(CMAcceleration()))
+        StatisticsView(
+            currentAcceleration: .constant(CMAcceleration()),
+            maximumAcceleration: .constant(CMAcceleration()),
+            currentSpeed: .constant(1),
+            maximumSpeed: .constant(10))
     }
 }

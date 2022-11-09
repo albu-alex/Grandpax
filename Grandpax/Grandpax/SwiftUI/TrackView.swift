@@ -39,9 +39,14 @@ struct TrackView: View {
                     viewModel.startLocationsServices()
                     viewModel.startAccelerometer()
                 }
-            StatisticsView(currentAcceleration: $viewModel.acceleration, maximumAcceleration: $viewModel.maximumAcceleration)
-                .offset(y: 550)
-                .frame(maxHeight: 100)
+            StatisticsView(
+                currentAcceleration: $viewModel.acceleration,
+                maximumAcceleration: $viewModel.maximumAcceleration,
+                currentSpeed: $viewModel.currentSpeed,
+                maximumSpeed: $viewModel.maximumSpeed
+            )
+            .offset(y: 550)
+            .frame(maxHeight: 100)
         }
         .shadow(color: Color(Colors.shadow) ,radius: 30, y: 25)
     }

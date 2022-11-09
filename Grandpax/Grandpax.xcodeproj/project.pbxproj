@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB12916C475000B5046 /* TrackViewModel.swift */; };
 		DC133DB4291709C0000B5046 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB3291709C0000B5046 /* StatisticsView.swift */; };
+		DC489F2C291B8EFE005B401A /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC489F2B291B8EFE005B401A /* Double+Extensions.swift */; };
 		DC96DB56291AEFDA00688A91 /* CMAcceleration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */; };
 		DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3B7290D374900E18516 /* AppDelegate.swift */; };
 		DCD4F3BA290D374900E18516 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3B9290D374900E18516 /* SceneDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		DC133DB12916C475000B5046 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		DC133DB3291709C0000B5046 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		DC489F2B291B8EFE005B401A /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+Extensions.swift"; sourceTree = "<group>"; };
 		DCD4F3B4290D374900E18516 /* Grandpax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grandpax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCD4F3B7290D374900E18516 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				DCD4F3D4290E711300E18516 /* UIView+Extensions.swift */,
 				DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */,
 				DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */,
+				DC489F2B291B8EFE005B401A /* Double+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				DC133DB4291709C0000B5046 /* StatisticsView.swift in Sources */,
 				DCD4F3D0290D63AD00E18516 /* Colors.swift in Sources */,
 				DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */,
+				DC489F2C291B8EFE005B401A /* Double+Extensions.swift in Sources */,
 				DCEE27BA291663A400F6BDD4 /* MKMapView+Extensions.swift in Sources */,
 				DCD4F3C2290D374900E18516 /* Grandpax.xcdatamodeld in Sources */,
 				DCD4F3BA290D374900E18516 /* SceneDelegate.swift in Sources */,

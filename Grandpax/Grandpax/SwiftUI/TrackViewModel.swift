@@ -31,6 +31,8 @@ final class TrackViewModel: NSObject, ObservableObject {
     )
     @Published var acceleration = CMAcceleration()
     @Published var maximumAcceleration = CMAcceleration()
+    @Published var currentSpeed = CLLocationSpeed()
+    @Published var maximumSpeed = CLLocationSpeed()
     
     // MARK: - Methods
     
@@ -87,10 +89,13 @@ extension TrackViewModel: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let coordinate = manager.location?.coordinate else { return }
+        guard let coordinate = manager.location?.coordinate, let speed = manager.location?.speed else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
             withAnimation {
                 region.center = coordinate
+                let convertedSpeed = speed.convertFromMsToKmh()
+                currentSpeed = speed < 0 ? 0 : convertedSpeed
+                if convertedSpeed > maximumSpeed { maximumSpeed = convertedSpeed }
             }
         }
     }
