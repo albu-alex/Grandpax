@@ -17,6 +17,10 @@ struct StatisticsView: View {
     @Binding var currentSpeed: Double
     @Binding var maximumSpeed: Double
     
+    // MARK: - States
+    
+    @State private var isPresentingAlert = false
+    
     // MARK: - Properties
     
     private var accelerationCurrent: Double {
@@ -59,6 +63,11 @@ struct StatisticsView: View {
             .foregroundColor(.black)
             .padding(.horizontal, 32)
             .padding(.vertical)
+            .onChange(of: accelerationCurrent) { newValue in
+                if newValue > 7 {
+                    isPresentingAlert = true
+                }
+            }
             Spacer()
             HStack {
                 Text("Max G-Force")
@@ -73,6 +82,9 @@ struct StatisticsView: View {
         .cornerRadius(20)
         .padding(.vertical, 400)
         .shadow(color: Color(Colors.shadow), radius: 5)
+        .alert("Unusual G-Force reading", isPresented: $isPresentingAlert, actions: {}) {
+            Text("For accurate results, hold the phone standstill")
+        }
     }
 }
 
