@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB12916C475000B5046 /* TrackViewModel.swift */; };
 		DC133DB4291709C0000B5046 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB3291709C0000B5046 /* StatisticsView.swift */; };
+		DC1B12452922286B00AF9A18 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B12442922286B00AF9A18 /* Alerts.swift */; };
 		DC489F2C291B8EFE005B401A /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC489F2B291B8EFE005B401A /* Double+Extensions.swift */; };
 		DC96DB56291AEFDA00688A91 /* CMAcceleration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */; };
 		DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3B7290D374900E18516 /* AppDelegate.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		DC133DB12916C475000B5046 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		DC133DB3291709C0000B5046 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		DC1B12442922286B00AF9A18 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		DC489F2B291B8EFE005B401A /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+Extensions.swift"; sourceTree = "<group>"; };
 		DCD4F3B4290D374900E18516 /* Grandpax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grandpax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,6 +111,7 @@
 				DCD4F3CF290D63AD00E18516 /* Colors.swift */,
 				DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */,
 				DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */,
+				DC1B12442922286B00AF9A18 /* Alerts.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			files = (
 				DCD4F3D5290E711300E18516 /* UIView+Extensions.swift in Sources */,
 				DCD4F3BC290D374900E18516 /* MainViewController.swift in Sources */,
+				DC1B12452922286B00AF9A18 /* Alerts.swift in Sources */,
 				DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */,
 				DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */,
 				DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */,

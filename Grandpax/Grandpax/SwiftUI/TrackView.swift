@@ -16,6 +16,7 @@ struct TrackView: View {
     // MARK: - States
     @StateObject private var viewModel = TrackViewModel()
     @State private var trackingMode: MapUserTrackingMode = .follow
+    @State private var isAlertPresented = false
     
     // MARK: - Lifecycle
     
@@ -24,8 +25,15 @@ struct TrackView: View {
             HStack {
                 Spacer()
                 ActionButton(image: Image(systemName: "xmark")) {
-                    viewModel.deallocateManagers()
-                    presentationMode.wrappedValue.dismiss()
+                    isAlertPresented = true
+                }
+                .alert("Are you sure?", isPresented: $isAlertPresented, actions: {
+                    Button("Ok", role: .destructive) {
+                        viewModel.deallocateManagers()
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }) {
+                    Text("Tracking is still in progress")
                 }
                 .padding(.horizontal)
             }
