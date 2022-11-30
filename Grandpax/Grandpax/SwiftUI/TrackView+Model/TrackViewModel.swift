@@ -10,29 +10,31 @@ import MapKit
 import CoreMotion
 import Foundation
 
+struct Place: Identifiable {
+    let id = UUID()
+    let coordinate: CLLocationCoordinate2D
+}
+
 final class TrackViewModel: NSObject, ObservableObject {
     
     // MARK: - Properties
     
     var locationManager: CLLocationManager?
     var motionManager: CMMotionManager?
+    var userLocations = [CLLocationCoordinate2D]() {
+        didSet {
+            places = userLocations.map { Place(coordinate: $0) }
+        }
+    }
     static private let delta = 0.005
     
     // MARK: - States
     
-    @Published var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(
-            // Default location is Pula, Croatia
-            latitude: 44.8683,
-            longitude: 13.8481),
-        span: MKCoordinateSpan(
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005)
-    )
     @Published var acceleration = CMAcceleration()
     @Published var maximumAcceleration = CMAcceleration()
     @Published var currentSpeed = CLLocationSpeed()
     @Published var maximumSpeed = CLLocationSpeed()
+    @Published var places = [Place]()
     
     // MARK: - Methods
     
@@ -92,11 +94,11 @@ extension TrackViewModel: CLLocationManagerDelegate {
         guard let coordinate = manager.location?.coordinate, let speed = manager.location?.speed else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
             withAnimation {
-                region.center = coordinate
-                let convertedSpeed = speed.convertFromMsToKmh()
-                currentSpeed = speed < 0 ? 0 : convertedSpeed
-                if convertedSpeed > maximumSpeed { maximumSpeed = convertedSpeed }
+                userLocations.append(coordinate)
             }
+            let convertedSpeed = speed.convertFromMsToKmh()
+            currentSpeed = speed < 0 ? 0 : convertedSpeed
+            if convertedSpeed > maximumSpeed { maximumSpeed = convertedSpeed }
         }
     }
 }

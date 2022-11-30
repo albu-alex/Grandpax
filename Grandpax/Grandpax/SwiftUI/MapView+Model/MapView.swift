@@ -1,0 +1,39 @@
+//
+//  MapView.swift
+//  Grandpax
+//
+//  Created by Alex Albu on 30.11.2022.
+//
+
+import SwiftUI
+import MapKit
+
+struct MapView: UIViewRepresentable {
+    @StateObject var viewModel: MapViewModel
+
+    func makeUIView(context: Context) -> MKMapView {
+        let mapView = MKMapView()
+        mapView.showsUserLocation = true
+        mapView.setUserTrackingMode(.follow, animated: true)
+        mapView.region.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        viewModel.injectMapView(mapView)
+        mapView.delegate = context.coordinator
+        return mapView
+    }
+
+    func updateUIView(_ uiView: MKMapView, context: Context) { }
+
+    func makeCoordinator() -> Coordinator {
+        return Coordinator()
+    }
+
+    class Coordinator: NSObject, MKMapViewDelegate {
+        func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            guard let polyline = overlay as? MKPolyline else { return MKOverlayRenderer() }
+            let renderer = MKPolylineRenderer(polyline: polyline)
+            renderer.strokeColor = Colors.mediumStrongGreen
+            renderer.lineWidth = 3.0
+            return renderer
+        }
+    }
+}

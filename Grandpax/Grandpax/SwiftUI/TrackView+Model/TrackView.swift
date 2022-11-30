@@ -14,7 +14,8 @@ struct TrackView: View {
     @Environment(\.presentationMode) var presentationMode
     
     // MARK: - States
-    @StateObject private var viewModel = TrackViewModel()
+    @StateObject private var trackViewModel = TrackViewModel()
+    @StateObject private var mapViewModel = MapViewModel()
     @State private var trackingMode: MapUserTrackingMode = .follow
     @State private var isAlertPresented = false
     
@@ -28,8 +29,8 @@ struct TrackView: View {
                     isAlertPresented = true
                 }
                 .alert("Are you sure?", isPresented: $isAlertPresented, actions: {
-                    Button("Ok", role: .destructive) {
-                        viewModel.deallocateManagers()
+                    Button("OK", role: .destructive) {
+                        trackViewModel.deallocateManagers()
                         presentationMode.wrappedValue.dismiss()
                     }
                 }) {
@@ -40,18 +41,23 @@ struct TrackView: View {
             .frame(maxHeight: 60)
             .background(Color(Colors.white).opacity(0.5))
             .zIndex(8)
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: $trackingMode)
+            MapView(viewModel: mapViewModel)
                 .edgesIgnoringSafeArea(.bottom)
                 .tint(Color(Colors.strongGreen))
                 .onAppear {
-                    viewModel.startLocationsServices()
-                    viewModel.startAccelerometer()
+                    trackViewModel.startLocationsServices()
+                    trackViewModel.startAccelerometer()
+                }
+                .onChange(of: trackViewModel.userLocations) { newValue in
+                    mapViewModel.drawLine(newValue)
+                    // Can force unwrap here because we only change center on last location change
+                    mapViewModel.setCentralLocation(newValue.last!)
                 }
             StatisticsView(
-                currentAcceleration: $viewModel.acceleration,
-                maximumAcceleration: $viewModel.maximumAcceleration,
-                currentSpeed: $viewModel.currentSpeed,
-                maximumSpeed: $viewModel.maximumSpeed
+                currentAcceleration: $trackViewModel.acceleration,
+                maximumAcceleration: $trackViewModel.maximumAcceleration,
+                currentSpeed: $trackViewModel.currentSpeed,
+                maximumSpeed: $trackViewModel.maximumSpeed
             )
             .offset(y: 550)
             .frame(maxHeight: 100)
