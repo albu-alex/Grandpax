@@ -21,11 +21,7 @@ final class TrackViewModel: NSObject, ObservableObject {
     
     var locationManager: CLLocationManager?
     var motionManager: CMMotionManager?
-    var userLocations = [CLLocationCoordinate2D]() {
-        didSet {
-            places = userLocations.map { Place(coordinate: $0) }
-        }
-    }
+    var userLocations = [CLLocationCoordinate2D]()
     static private let delta = 0.005
     
     // MARK: - States
@@ -34,7 +30,6 @@ final class TrackViewModel: NSObject, ObservableObject {
     @Published var maximumAcceleration = CMAcceleration()
     @Published var currentSpeed = CLLocationSpeed()
     @Published var maximumSpeed = CLLocationSpeed()
-    @Published var places = [Place]()
     
     // MARK: - Methods
     

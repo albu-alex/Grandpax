@@ -14,6 +14,12 @@ struct Colors {
     static var shadow: UIColor {
         UIColor(red: 48/255, green: 48/255, blue: 48/255, alpha: 1)
     }
+    static var lightBackgroundGreen: UIColor {
+        UIColor(red: 238/255, green: 255/255, blue: 238/255, alpha: 1)
+    }
+    static var strongBackgroundGreen: UIColor {
+        UIColor(red: 48/255, green: 76/255, blue: 48/255, alpha: 1)
+    }
     static var strongGreen: UIColor {
         UIColor(red: 96/255, green: 171/255, blue: 162/255, alpha: 1)
     }

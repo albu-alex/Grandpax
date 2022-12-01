@@ -29,7 +29,8 @@ class MainViewController: UIViewController {
         print(#function)
     }
     @IBAction func onSettingsButtonPressed(_ sender: Any) {
-        print(#function)
+        let settingsViewController = UIHostingController(rootView: SettingsView())
+        present(settingsViewController, animated: true)
     }
     
     // MARK: - Public properties
