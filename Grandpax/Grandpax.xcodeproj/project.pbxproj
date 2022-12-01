@@ -15,6 +15,7 @@
 		DC96DB56291AEFDA00688A91 /* CMAcceleration+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */; };
 		DCA65CBF2938FEDD00B2C7B7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA65CBE2938FEDD00B2C7B7 /* SettingsView.swift */; };
 		DCA65CC12939048300B2C7B7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA65CC02939048300B2C7B7 /* SettingsViewModel.swift */; };
+		DCA65CC329391BCE00B2C7B7 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA65CC229391BCE00B2C7B7 /* UserDefaultsManager.swift */; };
 		DCC78C7F2937B87300CF2F8B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC78C7E2937B87300CF2F8B /* MapView.swift */; };
 		DCC78C812937B8A200CF2F8B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC78C802937B8A200CF2F8B /* MapViewModel.swift */; };
 		DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3B7290D374900E18516 /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		DC96DB55291AEFDA00688A91 /* CMAcceleration+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CMAcceleration+Extensions.swift"; sourceTree = "<group>"; };
 		DCA65CBE2938FEDD00B2C7B7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DCA65CC02939048300B2C7B7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		DCA65CC229391BCE00B2C7B7 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		DCC78C7E2937B87300CF2F8B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DCC78C802937B8A200CF2F8B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		DCD4F3B4290D374900E18516 /* Grandpax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Grandpax.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +151,7 @@
 				DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */,
 				DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */,
 				DC1B12442922286B00AF9A18 /* Alerts.swift */,
+				DCA65CC229391BCE00B2C7B7 /* UserDefaultsManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				DC80CD44292AA71700DAB655 /* CLLocationCoordinate2D+Extensions.swift in Sources */,
 				DCD4F3BC290D374900E18516 /* MainViewController.swift in Sources */,
 				DC1B12452922286B00AF9A18 /* Alerts.swift in Sources */,
+				DCA65CC329391BCE00B2C7B7 /* UserDefaultsManager.swift in Sources */,
 				DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */,
 				DCA65CBF2938FEDD00B2C7B7 /* SettingsView.swift in Sources */,
 				DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */,

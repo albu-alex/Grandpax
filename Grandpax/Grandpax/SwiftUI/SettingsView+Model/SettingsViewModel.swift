@@ -7,10 +7,22 @@
 
 import SwiftUI
 
-class SettingsViewModel: ObservableObject {
+final class SettingsViewModel: ObservableObject {
     
     // MARK: - States
-    @Published var isImperialUnitsSelected = false
-    @Published var isSavingTrackingData = true
-    @Published var isFollowingCurrentLocation = true
+    @Published var isImperialUnitsSelected = UserDefaultsManager.Settings.isImperialUnitsSelected {
+        didSet {
+            UserDefaultsManager.Settings.isImperialUnitsSelected = isImperialUnitsSelected
+        }
+    }
+    @Published var isSavingTrackingData = UserDefaultsManager.Settings.isSavingTrackingData {
+        didSet {
+            UserDefaultsManager.Settings.isSavingTrackingData = isSavingTrackingData
+        }
+    }
+    @Published var isFollowingCurrentLocation = UserDefaultsManager.Settings.isFollowingCurrentLocation {
+        didSet {
+            UserDefaultsManager.Settings.isFollowingCurrentLocation = isFollowingCurrentLocation
+        }
+    }
 }
