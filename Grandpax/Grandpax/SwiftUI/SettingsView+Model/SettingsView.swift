@@ -14,8 +14,11 @@ struct SettingsView: View {
     
     // MARK: - States
     @StateObject private var viewModel = SettingsViewModel()
-    @State private var toggleColor = AppDelegate.isDarkModeEnabled ? Colors.lightGreen : Colors.strongGreen
-    @State private var backgroundColor = AppDelegate.isDarkModeEnabled ? Colors.strongBackgroundGreen : Colors.lightBackgroundGreen
+    
+    // MARK: - Properties
+    
+    private let toggleColor = Theme.tintColor
+    private let backgroundColor = Theme.background
     
     // MARK: - Lifecycle
     

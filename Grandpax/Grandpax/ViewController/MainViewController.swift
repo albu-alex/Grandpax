@@ -33,15 +33,11 @@ class MainViewController: UIViewController {
         present(settingsViewController, animated: true)
     }
     
-    // MARK: - Public properties
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
-    
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Colors.strongGreen
+        view.backgroundColor = Theme.background
         
         setupTitleLabel()
         setupStartTrackingButton()
@@ -54,32 +50,33 @@ class MainViewController: UIViewController {
     // MARK: - Private methods
     
     private func setupTitleLabel() {
-        titleLabel.textColor = Colors.white
+        titleLabel.textColor = Theme.textColor
+        titleLabel.text = CommonStrings.appName
         titleLabel.configureViewShadow(color: Colors.shadow, shadowRadius: 20)
     }
     
     private func setupStartTrackingButton() {
-        startTrackingButton.tintColor = Colors.white
+        startTrackingButton.tintColor = Theme.textColor
         startTrackingButton.configureViewShadow(color: Colors.shadow, offset: .init(width: 10, height: 10), shadowRadius: 15)
     }
     
     private func setupStartTrackingLabel() {
-        startTrackingLabel.textColor = Colors.mediumLightGreen
+        startTrackingLabel.textColor = Theme.tintColor
         startTrackingLabel.configureViewShadow(color: Colors.shadow, opacity: 0.4, offset: .init(width: 5, height: 5))
     }
     
     private func setupPreviousButton() {
-        previousButton.setTitleColor(Colors.white, for: .normal)
-        previousButton.tintColor = Colors.white
+        previousButton.setTitleColor(Theme.textColor, for: .normal)
+        previousButton.tintColor = Theme.textColor
     }
     
     private func setupSettingsButton() {
-        settingsButton.setTitleColor(Colors.white, for: .normal)
-        settingsButton.tintColor = Colors.white
+        settingsButton.setTitleColor(Theme.textColor, for: .normal)
+        settingsButton.tintColor = Theme.textColor
     }
     
     private func setupButtonsStackView() {
-        buttonsStackView.backgroundColor = Colors.mediumStrongGreen.withAlphaComponent(0.2)
+        buttonsStackView.backgroundColor = Theme.accentBackground.withAlphaComponent(0.2)
         buttonsStackView.configureViewShadow(color: Colors.shadow, shadowRadius: 24)
         buttonsStackView.layer.cornerRadius = CornerRadius.Large
     }

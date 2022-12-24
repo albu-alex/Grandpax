@@ -43,7 +43,7 @@ struct TrackView: View {
             .zIndex(8)
             MapView(viewModel: mapViewModel)
                 .edgesIgnoringSafeArea(.bottom)
-                .tint(Color(Colors.strongGreen))
+                .tint(Color(Theme.tintColor))
                 .onAppear {
                     trackViewModel.startLocationsServices()
                     trackViewModel.startAccelerometer()
