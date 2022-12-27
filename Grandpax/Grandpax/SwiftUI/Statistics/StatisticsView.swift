@@ -80,7 +80,7 @@ struct StatisticsView: View {
         }
         .background(Color(Colors.white).opacity(0.9))
         .cornerRadius(20)
-        .padding(.vertical, 400)
+        .fixedSize(horizontal: true, vertical: true)
         .shadow(color: Color(Colors.shadow), radius: 5)
         .alert("Unusual G-Force reading", isPresented: $isPresentingAlert, actions: {}) {
             Text("For accurate results, hold the phone standstill")

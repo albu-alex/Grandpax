@@ -14,8 +14,7 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.follow, animated: true)
-        mapView.region.span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        mapView.region.span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         viewModel.injectMapView(mapView)
         mapView.delegate = context.coordinator
         return mapView
@@ -28,10 +27,12 @@ struct MapView: UIViewRepresentable {
     }
 
     class Coordinator: NSObject, MKMapViewDelegate {
+        private var renderer = MKPolylineRenderer()
+        
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
             guard let polyline = overlay as? MKPolyline else { return MKOverlayRenderer() }
-            let renderer = MKPolylineRenderer(polyline: polyline)
-            renderer.strokeColor = Colors.mediumStrongGreen
+            renderer = MKPolylineRenderer(polyline: polyline)
+            renderer.strokeColor = Theme.tintColor
             renderer.lineWidth = 3.0
             return renderer
         }

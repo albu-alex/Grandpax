@@ -77,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DC10342D295B81990084AC9F /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				DC133DB3291709C0000B5046 /* StatisticsView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 		DC3FC46A2911291500F482C8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,11 +182,11 @@
 		DCEE27BE29166CF900F6BDD4 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				DC10342D295B81990084AC9F /* Statistics */,
 				DCA65CBD2938FECB00B2C7B7 /* SettingsView+Model */,
 				DCC78C832937C29F00CF2F8B /* MapView+Model */,
 				DCC78C822937C28300CF2F8B /* TrackView+Model */,
 				DCEE27C129167A0200F6BDD4 /* ActionButton.swift */,
-				DC133DB3291709C0000B5046 /* StatisticsView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";

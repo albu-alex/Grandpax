@@ -15,12 +15,9 @@ class MapViewModel: ObservableObject {
     private var mapView: MKMapView?
 
     func drawLine(_ coordinates: [CLLocationCoordinate2D]) {
+        mapView?.setUserTrackingMode(.follow, animated: false)
         let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
         mapView?.addOverlay(polyline)
-    }
-    
-    func setCentralLocation(_ location: CLLocationCoordinate2D) {
-        mapView?.setCenter(location, animated: true)
     }
 
     func injectMapView(_ mapView: MKMapView) {

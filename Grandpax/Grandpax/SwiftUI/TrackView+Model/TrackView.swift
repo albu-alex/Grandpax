@@ -16,7 +16,6 @@ struct TrackView: View {
     // MARK: - States
     @StateObject private var trackViewModel = TrackViewModel()
     @StateObject private var mapViewModel = MapViewModel()
-    @State private var trackingMode: MapUserTrackingMode = .follow
     @State private var isAlertPresented = false
     
     // MARK: - Lifecycle
@@ -50,8 +49,6 @@ struct TrackView: View {
                 }
                 .onChange(of: trackViewModel.userLocations) { newValue in
                     mapViewModel.drawLine(newValue)
-                    // Can force unwrap here because we only change center on last location change
-                    mapViewModel.setCentralLocation(newValue.last!)
                 }
             StatisticsView(
                 currentAcceleration: $trackViewModel.acceleration,
@@ -61,6 +58,7 @@ struct TrackView: View {
             )
             .offset(y: 550)
             .frame(maxHeight: 100)
+
         }
         .shadow(color: Color(Colors.shadow) ,radius: 30, y: 25)
     }

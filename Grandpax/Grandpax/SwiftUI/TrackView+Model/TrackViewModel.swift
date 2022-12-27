@@ -22,7 +22,6 @@ final class TrackViewModel: NSObject, ObservableObject {
     var locationManager: CLLocationManager?
     var motionManager: CMMotionManager?
     var userLocations = [CLLocationCoordinate2D]()
-    static private let delta = 0.005
     
     // MARK: - States
     
@@ -88,9 +87,7 @@ extension TrackViewModel: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let coordinate = manager.location?.coordinate, let speed = manager.location?.speed else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
-            withAnimation {
-                userLocations.append(coordinate)
-            }
+            userLocations.append(coordinate)
             let convertedSpeed = speed.convertFromMsToKmh()
             currentSpeed = speed < 0 ? 0 : convertedSpeed
             if convertedSpeed > maximumSpeed { maximumSpeed = convertedSpeed }
