@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import CoreLocationUI
 import MapKit
 
 struct TrackView: View {
+    
+    // MARK: - Properties
+    
+    private var isCenteringLocation: Bool {
+        trackViewModel.isCenteringLocation
+    }
     
     // MARK: - Environment
     @Environment(\.presentationMode) var presentationMode
@@ -40,6 +47,22 @@ struct TrackView: View {
             .frame(maxHeight: 60)
             .background(Color(Colors.white).opacity(0.5))
             .zIndex(8)
+            HStack {
+                Spacer()
+                VStack {
+                    LocationButton(.currentLocation, action: {
+                        trackViewModel.isCenteringLocation.toggle()
+                    })
+                    .tint(Color(Colors.white))
+                    .foregroundColor(Color(Theme.tintColor))
+                    .labelStyle(.iconOnly)
+                    .symbolVariant(isCenteringLocation ? .fill : .none)
+                    .cornerRadius(8)
+                }
+            }
+            .frame(height: AppDelegate.screenBounds.height / 2, alignment: .center)
+            .padding()
+            .zIndex(8)
             MapView(viewModel: mapViewModel)
                 .edgesIgnoringSafeArea(.bottom)
                 .tint(Color(Theme.tintColor))
@@ -49,6 +72,15 @@ struct TrackView: View {
                 }
                 .onChange(of: trackViewModel.userLocations) { newValue in
                     mapViewModel.drawLine(newValue)
+                }
+                .gesture(
+                    MagnificationGesture()
+                        .onChanged { _ in
+                            trackViewModel.isCenteringLocation = false
+                        }
+                )
+                .onTapGesture {
+                    trackViewModel.isCenteringLocation = false
                 }
             StatisticsView(
                 currentAcceleration: $trackViewModel.acceleration,

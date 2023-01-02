@@ -8,12 +8,6 @@
 import SwiftUI
 import MapKit
 import CoreMotion
-import Foundation
-
-struct Place: Identifiable {
-    let id = UUID()
-    let coordinate: CLLocationCoordinate2D
-}
 
 final class TrackViewModel: NSObject, ObservableObject {
     
@@ -29,6 +23,11 @@ final class TrackViewModel: NSObject, ObservableObject {
     @Published var maximumAcceleration = CMAcceleration()
     @Published var currentSpeed = CLLocationSpeed()
     @Published var maximumSpeed = CLLocationSpeed()
+    @Published var isCenteringLocation = UserDefaultsManager.Settings.isFollowingCurrentLocation {
+        didSet {
+            NotificationCenter.default.post(name: Notification.Name("LocationCenteringDidChange"), object: nil, userInfo: ["isCenteringLocation":  isCenteringLocation])
+        }
+    }
     
     // MARK: - Methods
     

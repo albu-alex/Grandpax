@@ -14,6 +14,7 @@ struct MapView: UIViewRepresentable {
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
         mapView.showsUserLocation = true
+        mapView.isRotateEnabled = false
         mapView.region.span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         viewModel.injectMapView(mapView)
         mapView.delegate = context.coordinator
