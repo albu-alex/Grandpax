@@ -16,6 +16,19 @@ final class TrackViewModel: NSObject, ObservableObject {
     var locationManager: CLLocationManager?
     var motionManager: CMMotionManager?
     var userLocations = [CLLocationCoordinate2D]()
+    var averageSpeed: Double = 0
+    var averageAcceleration: Double = 0
+    
+    private var speedReadings = [Double]() {
+        didSet {
+            averageSpeed = speedReadings.isEmpty ? .zero : speedReadings.reduce(.zero) { $0 + $1 } / Double(speedReadings.count)
+        }
+    }
+    private var accelerationReadings = [CMAcceleration]() {
+        didSet {
+            averageAcceleration = accelerationReadings.isEmpty ? .zero : accelerationReadings.sum() / Double(accelerationReadings.count)
+        }
+    }
     
     // MARK: - States
     
@@ -51,9 +64,11 @@ final class TrackViewModel: NSObject, ObservableObject {
         // Make sure the accelerometer hardware is available.
         guard motionManager.isAccelerometerAvailable else { return }
         motionManager.accelerometerUpdateInterval = 0.5
-        motionManager.startAccelerometerUpdates(to: .main) { (data, error) in
-            guard let acceleration = data?.acceleration else { return }
+        motionManager.startAccelerometerUpdates(to: .main) { [weak self] (data, error) in
+            guard let self, let acceleration = data?.acceleration else { return }
             self.acceleration = acceleration
+            self.accelerationReadings.append(acceleration)
+            self.accelerationReadings = Array(Set(self.accelerationReadings))
             if acceleration.isGreater(than: self.maximumAcceleration) { self.maximumAcceleration = acceleration }
         }
         self.motionManager = motionManager
@@ -87,7 +102,10 @@ extension TrackViewModel: CLLocationManagerDelegate {
         guard let coordinate = manager.location?.coordinate, let speed = manager.location?.speed else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
             userLocations.append(coordinate)
+            userLocations = Array(Set(userLocations))
             let convertedSpeed = speed.convertFromMsToKmh()
+            speedReadings.append(convertedSpeed)
+            speedReadings = Array(Set(speedReadings))
             currentSpeed = speed < 0 ? 0 : convertedSpeed
             if convertedSpeed > maximumSpeed { maximumSpeed = convertedSpeed }
         }

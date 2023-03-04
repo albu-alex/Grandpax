@@ -15,7 +15,7 @@ struct MapView: UIViewRepresentable {
         let mapView = MKMapView()
         mapView.showsUserLocation = true
         mapView.isRotateEnabled = false
-        mapView.region.span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        mapView.isZoomEnabled = false
         viewModel.injectMapView(mapView)
         mapView.delegate = context.coordinator
         return mapView
@@ -31,6 +31,7 @@ struct MapView: UIViewRepresentable {
         private var renderer = MKPolylineRenderer()
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            // TODO: Use MKMultiPolylineRenderer
             guard let polyline = overlay as? MKPolyline else { return MKOverlayRenderer() }
             renderer = MKPolylineRenderer(polyline: polyline)
             renderer.strokeColor = Theme.tintColor

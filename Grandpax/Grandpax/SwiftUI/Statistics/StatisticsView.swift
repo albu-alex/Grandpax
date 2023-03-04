@@ -23,16 +23,13 @@ struct StatisticsView: View {
     
     // MARK: - Properties
     
-    private var accelerationCurrent: Double {
-        abs(currentAcceleration.x) +
-        abs(currentAcceleration.y) +
-        abs(currentAcceleration.z)
-    }
+    private let G_FORCE_TRESHOLD = 7.0
     
+    private var accelerationCurrent: Double {
+        currentAcceleration.acceleration
+    }
     private var accelerationMax: Double {
-        abs(maximumAcceleration.x) +
-        abs(maximumAcceleration.y) +
-        abs(maximumAcceleration.z)
+        maximumAcceleration.acceleration
     }
     
     var body: some View {
@@ -64,7 +61,7 @@ struct StatisticsView: View {
             .padding(.horizontal, 32)
             .padding(.vertical)
             .onChange(of: accelerationCurrent) { newValue in
-                if newValue > 7 {
+                if newValue > G_FORCE_TRESHOLD {
                     isPresentingAlert = true
                 }
             }

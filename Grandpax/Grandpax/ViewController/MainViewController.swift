@@ -26,7 +26,8 @@ class MainViewController: UIViewController {
         present(trackViewController, animated: true)
     }
     @IBAction func onPreviousButtonPressed(_ sender: Any) {
-        print(#function)
+        let previousViewController = UIHostingController(rootView: PreviousView())
+        present(previousViewController, animated: true)
     }
     @IBAction func onSettingsButtonPressed(_ sender: Any) {
         let settingsViewController = UIHostingController(rootView: SettingsView())

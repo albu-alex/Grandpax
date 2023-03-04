@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		690907FD4CC9F3BF8CD3FB28 /* Pods_Grandpax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48BE58133D25C65C9942C66F /* Pods_Grandpax.framework */; };
 		DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB12916C475000B5046 /* TrackViewModel.swift */; };
 		DC133DB4291709C0000B5046 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB3291709C0000B5046 /* StatisticsView.swift */; };
 		DC1B12452922286B00AF9A18 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1B12442922286B00AF9A18 /* Alerts.swift */; };
@@ -16,6 +17,7 @@
 		DCA65CBF2938FEDD00B2C7B7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA65CBE2938FEDD00B2C7B7 /* SettingsView.swift */; };
 		DCA65CC12939048300B2C7B7 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA65CC02939048300B2C7B7 /* SettingsViewModel.swift */; };
 		DCA65CC329391BCE00B2C7B7 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA65CC229391BCE00B2C7B7 /* UserDefaultsManager.swift */; };
+		DCB6E8F129832439006BAF76 /* PreviousView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB6E8F029832439006BAF76 /* PreviousView.swift */; };
 		DCC78C7F2937B87300CF2F8B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC78C7E2937B87300CF2F8B /* MapView.swift */; };
 		DCC78C812937B8A200CF2F8B /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC78C802937B8A200CF2F8B /* MapViewModel.swift */; };
 		DCD2C6EC29573267006FFF73 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD2C6EB29573267006FFF73 /* Theme.swift */; };
@@ -36,6 +38,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48BE58133D25C65C9942C66F /* Pods_Grandpax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grandpax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A92824A7FCD093E9CC62E176 /* Pods-Grandpax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.debug.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.debug.xcconfig"; sourceTree = "<group>"; };
+		D24037889A5BB7F6C526E1F1 /* Pods-Grandpax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.release.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.release.xcconfig"; sourceTree = "<group>"; };
 		DC133DB12916C475000B5046 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		DC133DB3291709C0000B5046 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		DC1B12442922286B00AF9A18 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
@@ -45,6 +50,7 @@
 		DCA65CBE2938FEDD00B2C7B7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		DCA65CC02939048300B2C7B7 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		DCA65CC229391BCE00B2C7B7 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		DCB6E8F029832439006BAF76 /* PreviousView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousView.swift; sourceTree = "<group>"; };
 		DCC78C7E2937B87300CF2F8B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		DCC78C802937B8A200CF2F8B /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		DCD2C6EB29573267006FFF73 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -71,12 +77,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				690907FD4CC9F3BF8CD3FB28 /* Pods_Grandpax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A8184A6EDA3C35836FCE3A4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48BE58133D25C65C9942C66F /* Pods_Grandpax.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B1E317C7F35FEF53E5B58BF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A92824A7FCD093E9CC62E176 /* Pods-Grandpax.debug.xcconfig */,
+				D24037889A5BB7F6C526E1F1 /* Pods-Grandpax.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DC10342D295B81990084AC9F /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +127,14 @@
 			path = "SettingsView+Model";
 			sourceTree = "<group>";
 		};
+		DCB6E8EF298323A9006BAF76 /* PreviousView+Model */ = {
+			isa = PBXGroup;
+			children = (
+				DCB6E8F029832439006BAF76 /* PreviousView.swift */,
+			);
+			path = "PreviousView+Model";
+			sourceTree = "<group>";
+		};
 		DCC78C822937C28300CF2F8B /* TrackView+Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +158,8 @@
 			children = (
 				DCD4F3B6290D374900E18516 /* Grandpax */,
 				DCD4F3B5290D374900E18516 /* Products */,
+				3B1E317C7F35FEF53E5B58BF /* Pods */,
+				0A8184A6EDA3C35836FCE3A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -182,6 +216,7 @@
 		DCEE27BE29166CF900F6BDD4 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				DCB6E8EF298323A9006BAF76 /* PreviousView+Model */,
 				DC10342D295B81990084AC9F /* Statistics */,
 				DCA65CBD2938FECB00B2C7B7 /* SettingsView+Model */,
 				DCC78C832937C29F00CF2F8B /* MapView+Model */,
@@ -198,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCD4F3CB290D374D00E18516 /* Build configuration list for PBXNativeTarget "Grandpax" */;
 			buildPhases = (
+				C3343306F02134CA522F6A9A /* [CP] Check Pods Manifest.lock */,
 				DCD4F3B0290D374900E18516 /* Sources */,
 				DCD4F3B1290D374900E18516 /* Frameworks */,
 				DCD4F3B2290D374900E18516 /* Resources */,
+				1DA9D74C5A4909D4990B0810 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,6 +294,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DA9D74C5A4909D4990B0810 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3343306F02134CA522F6A9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Grandpax-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DCD4F3B0290D374900E18516 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -283,6 +362,7 @@
 				DCC78C7F2937B87300CF2F8B /* MapView.swift in Sources */,
 				DCD4F3BA290D374900E18516 /* SceneDelegate.swift in Sources */,
 				DCD4F3D7290E7FCB00E18516 /* CornerRadius.swift in Sources */,
+				DCB6E8F129832439006BAF76 /* PreviousView.swift in Sources */,
 				DCD4F3D2290D6F9D00E18516 /* CommonStrings.swift in Sources */,
 				DCA65CC12939048300B2C7B7 /* SettingsViewModel.swift in Sources */,
 			);
@@ -426,6 +506,7 @@
 		};
 		DCD4F3CC290D374D00E18516 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A92824A7FCD093E9CC62E176 /* Pods-Grandpax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -440,8 +521,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,6 +537,7 @@
 		};
 		DCD4F3CD290D374D00E18516 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D24037889A5BB7F6C526E1F1 /* Pods-Grandpax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -471,8 +552,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

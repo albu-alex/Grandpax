@@ -37,15 +37,39 @@ struct SettingsView: View {
             .frame(maxHeight: 60)
             .background(Color(Colors.white).opacity(0.5))
             .shadow(color: Color(Colors.shadow), radius: 40, y: 25)
-            .padding(.bottom, 72)
-            VStack(spacing: 24) {
-                Toggle("Imperial units", isOn: $viewModel.isImperialUnitsSelected)
-                Toggle("Save tracking data", isOn: $viewModel.isSavingTrackingData)
-                Toggle("Follow current location", isOn: $viewModel.isFollowingCurrentLocation)
-                Spacer()
+            .padding(.bottom, 24)
+            ZStack {
+                VStack(spacing: 32) {
+                    HStack {
+                        Image(systemName: "ruler.fill")
+                        Text("Imperial units")
+                        Spacer()
+                        Toggle("", isOn: $viewModel.isImperialUnitsSelected)
+                            .labelsHidden()
+                    }
+                    HStack {
+                        Image(systemName: "tray.and.arrow.down.fill")
+                        Text("Save tracking data")
+                        Spacer()
+                        Toggle("", isOn: $viewModel.isSavingTrackingData)
+                            .labelsHidden()
+                    }
+                    HStack {
+                        Image(systemName: "location.fill.viewfinder")
+                        Text("Follow current location")
+                        Spacer()
+                        Toggle("", isOn: $viewModel.isFollowingCurrentLocation)
+                            .labelsHidden()
+                    }
+                    Spacer()
+                }
+                .tint(Color(toggleColor))
+                .padding(.horizontal, 24)
+                .padding(.top, 24)
             }
-            .tint(Color(toggleColor))
-            .padding(.horizontal, 24)
+            .background(.ultraThinMaterial.opacity(0.5))
+            .cornerRadius(24)
+            .padding(.horizontal, 16)
         }
         .background(Color(backgroundColor))
     }
