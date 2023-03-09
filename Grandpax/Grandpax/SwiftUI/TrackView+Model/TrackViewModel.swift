@@ -68,7 +68,6 @@ final class TrackViewModel: NSObject, ObservableObject {
             guard let self, let acceleration = data?.acceleration else { return }
             self.acceleration = acceleration
             self.accelerationReadings.append(acceleration)
-            self.accelerationReadings = Array(Set(self.accelerationReadings))
             if acceleration.isGreater(than: self.maximumAcceleration) { self.maximumAcceleration = acceleration }
         }
         self.motionManager = motionManager
@@ -84,7 +83,7 @@ final class TrackViewModel: NSObject, ObservableObject {
         case .denied:
             print("Location is denied")
         case .authorizedAlways, .authorizedWhenInUse:
-            break
+            ToastService.shared.showToast(message: "Ready to use!")
         @unknown default:
             break
         }
@@ -102,10 +101,8 @@ extension TrackViewModel: CLLocationManagerDelegate {
         guard let coordinate = manager.location?.coordinate, let speed = manager.location?.speed else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
             userLocations.append(coordinate)
-            userLocations = Array(Set(userLocations))
             let convertedSpeed = speed.convertFromMsToKmh()
             speedReadings.append(convertedSpeed)
-            speedReadings = Array(Set(speedReadings))
             currentSpeed = speed < 0 ? 0 : convertedSpeed
             if convertedSpeed > maximumSpeed { maximumSpeed = convertedSpeed }
         }

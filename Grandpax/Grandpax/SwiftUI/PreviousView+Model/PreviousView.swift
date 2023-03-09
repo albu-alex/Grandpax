@@ -7,13 +7,7 @@
 
 import SwiftUI
 import Charts
-
-//struct Session: Identifiable {
-//    let id = UUID()
-//    let sessionName: String
-//    let maxGForce: Double
-//    let maxSpeed: Double
-//}
+import RealmSwift
 
 struct SessionData: Identifiable {
     let id = UUID()
@@ -23,13 +17,14 @@ struct SessionData: Identifiable {
 
 struct PreviousView: View {
     
-    // MARK: - Properties
+    // MARK: - Realm
     
-    private var previousSessions = [SessionData]()
+    @ObservedResults(Session.self) var previousSessions
     
     // MARK: - Environment
     
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.realm) var realm
     
     // MARK: - States
     
@@ -38,10 +33,13 @@ struct PreviousView: View {
     // MARK: - Lifecycle
     
     init() {
-        previousSessions = [
-            SessionData(name: "Test", value: 5),
-            SessionData(name: "Another", value: 48)
-        ]
+//        let session = Session()
+//        session.name = "Test Session"
+//        session.maxGForce = 3
+//        session.maxSpeed = 55
+//        try? realm.write {
+//            realm.add(session)
+//        }
     }
     
     var body: some View {
@@ -63,7 +61,7 @@ struct PreviousView: View {
             NavigationView {
                 List(previousSessions) { session in
                     NavigationLink {
-                        Text("\(session.value)")
+                        Text("\(session.maxSpeed)")
                     } label: {
                         Text(session.name)
                             .foregroundColor(Color(Theme.textColor))

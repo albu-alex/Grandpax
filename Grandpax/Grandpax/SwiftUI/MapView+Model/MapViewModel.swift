@@ -35,6 +35,9 @@ class MapViewModel: ObservableObject {
     func drawLine(_ coordinates: [CLLocationCoordinate2D]) {
         mapView?.setUserTrackingMode(userTrackingMode, animated: true)
         let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
+        if let overlay = mapView?.overlays.first {
+            mapView?.removeOverlay(overlay)
+        }
         mapView?.addOverlay(polyline)
     }
 

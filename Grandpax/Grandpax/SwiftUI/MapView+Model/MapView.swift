@@ -9,6 +9,13 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
+    
+    // MARK: - Properties
+    
+    private let CoordinateDistance = 1000.0
+    
+    // MARK: - StateObject
+    
     @StateObject var viewModel: MapViewModel
 
     func makeUIView(context: Context) -> MKMapView {
@@ -16,6 +23,7 @@ struct MapView: UIViewRepresentable {
         mapView.showsUserLocation = true
         mapView.isRotateEnabled = false
         mapView.isZoomEnabled = false
+        mapView.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: CoordinateDistance, maxCenterCoordinateDistance: CoordinateDistance), animated: true)
         viewModel.injectMapView(mapView)
         mapView.delegate = context.coordinator
         return mapView
