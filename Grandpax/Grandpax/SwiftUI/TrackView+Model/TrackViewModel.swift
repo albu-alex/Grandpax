@@ -66,8 +66,8 @@ final class TrackViewModel: NSObject, ObservableObject {
         motionManager.accelerometerUpdateInterval = 0.5
         motionManager.startAccelerometerUpdates(to: .main) { [weak self] (data, error) in
             guard let self, let acceleration = data?.acceleration else { return }
-            self.acceleration = acceleration
             self.accelerationReadings.append(acceleration)
+            self.acceleration = acceleration
             if acceleration.isGreater(than: self.maximumAcceleration) { self.maximumAcceleration = acceleration }
         }
         self.motionManager = motionManager
@@ -79,9 +79,9 @@ final class TrackViewModel: NSObject, ObservableObject {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            print("Location is restriced")
+            ToastService.shared.showToast(message: "Location is restricted")
         case .denied:
-            print("Location is denied")
+            ToastService.shared.showToast(message: "Location is denied")
         case .authorizedAlways, .authorizedWhenInUse:
             ToastService.shared.showToast(message: "Ready to use!")
         @unknown default:

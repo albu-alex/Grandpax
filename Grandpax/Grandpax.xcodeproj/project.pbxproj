@@ -33,6 +33,7 @@
 		DCD4F3D2290D6F9D00E18516 /* CommonStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */; };
 		DCD4F3D5290E711300E18516 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3D4290E711300E18516 /* UIView+Extensions.swift */; };
 		DCD4F3D7290E7FCB00E18516 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */; };
+		DCDFC8BA29C2596D00C61DA5 /* PreviousViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDFC8B929C2596D00C61DA5 /* PreviousViewModel.swift */; };
 		DCEE27BA291663A400F6BDD4 /* MKMapView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */; };
 		DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27BF29166D2600F6BDD4 /* TrackView.swift */; };
 		DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27C129167A0200F6BDD4 /* ActionButton.swift */; };
@@ -69,6 +70,7 @@
 		DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonStrings.swift; sourceTree = "<group>"; };
 		DCD4F3D4290E711300E18516 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
+		DCDFC8B929C2596D00C61DA5 /* PreviousViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousViewModel.swift; sourceTree = "<group>"; };
 		DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extensions.swift"; sourceTree = "<group>"; };
 		DCEE27BF29166D2600F6BDD4 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		DCEE27C129167A0200F6BDD4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				DCB6E8F029832439006BAF76 /* PreviousView.swift */,
+				DCDFC8B929C2596D00C61DA5 /* PreviousViewModel.swift */,
 			);
 			path = "PreviousView+Model";
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				DC1B12452922286B00AF9A18 /* Alerts.swift in Sources */,
 				DCA65CC329391BCE00B2C7B7 /* UserDefaultsManager.swift in Sources */,
 				DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */,
+				DCDFC8BA29C2596D00C61DA5 /* PreviousViewModel.swift in Sources */,
 				DC16514E29BA8DF800E9990B /* ToastService.swift in Sources */,
 				DCA65CBF2938FEDD00B2C7B7 /* SettingsView.swift in Sources */,
 				DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */,

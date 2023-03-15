@@ -39,7 +39,6 @@ struct MapView: UIViewRepresentable {
         private var renderer = MKPolylineRenderer()
         
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            // TODO: Use MKMultiPolylineRenderer
             guard let polyline = overlay as? MKPolyline else { return MKOverlayRenderer() }
             renderer = MKPolylineRenderer(polyline: polyline)
             renderer.strokeColor = Theme.tintColor

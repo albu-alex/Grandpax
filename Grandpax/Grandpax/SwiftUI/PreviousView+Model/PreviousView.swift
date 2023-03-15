@@ -9,38 +9,18 @@ import SwiftUI
 import Charts
 import RealmSwift
 
-struct SessionData: Identifiable {
-    let id = UUID()
-    let name: String
-    let value: Double
-}
-
 struct PreviousView: View {
-    
-    // MARK: - Realm
-    
-    @ObservedResults(Session.self) var previousSessions
     
     // MARK: - Environment
     
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.realm) var realm
     
     // MARK: - States
     
     @State private var isAlertPresented = false
+    @StateObject var viewModel = PreviousViewModel()
     
     // MARK: - Lifecycle
-    
-    init() {
-//        let session = Session()
-//        session.name = "Test Session"
-//        session.maxGForce = 3
-//        session.maxSpeed = 55
-//        try? realm.write {
-//            realm.add(session)
-//        }
-    }
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -59,15 +39,31 @@ struct PreviousView: View {
             .shadow(color: Color(Colors.shadow), radius: 40, y: 25)
             .zIndex(2)
             NavigationView {
-                List(previousSessions) { session in
+                List(viewModel.previousSessions) { session in
                     NavigationLink {
                         Text("\(session.maxSpeed)")
                     } label: {
                         Text(session.name)
                             .foregroundColor(Color(Theme.textColor))
+                            .padding(.vertical, 16)
                     }
                     .listRowBackground(Color(Theme.accentBackground))
                     .listRowSeparatorTint(Color(Theme.textColor))
+                    .swipeActions {
+                        Button(action: {
+                            viewModel.removePreviousSession(session)
+                        }, label: {
+                            Image(systemName: "trash")
+                        })
+                        .tint(.red)
+                        
+                        Button(action: {
+                            
+                        }, label: {
+                            Image(systemName: "pencil")
+                        })
+                        .tint(Color(Theme.accentColor))
+                    }
                 }
                 .background(Color(Theme.background))
                 .scrollContentBackground(.hidden)
