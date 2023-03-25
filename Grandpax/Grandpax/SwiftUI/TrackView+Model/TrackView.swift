@@ -96,15 +96,15 @@ struct TrackView: View {
     }
     
     private func onCleanup() {
+        defer { presentationMode.wrappedValue.dismiss() }
         trackViewModel.deallocateManagers()
         
+        guard UserDefaultsManager.Settings.isSavingTrackingData else { return }
         let session = Session()
         session.name = Date().formatted()
         session.maxSpeed = trackViewModel.maximumSpeed
         session.maxGForce = trackViewModel.maximumAcceleration.acceleration
         sessionsViewModel.addSession(session)
-        
-        presentationMode.wrappedValue.dismiss()
     }
 }
 

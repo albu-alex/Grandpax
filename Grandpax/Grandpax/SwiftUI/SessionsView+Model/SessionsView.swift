@@ -22,6 +22,8 @@ struct SessionsView: View {
     
     // MARK: - Properties
     
+    private let SPEED_UNIT = UserDefaultsManager.Settings.isImperialUnitsSelected ? "mph" : "km/h"
+    
     private var headerText: Text {
         let sessionsCount = viewModel.sessions.count
         let timesString = sessionsCount == 1 ? "time" : "times"
@@ -88,7 +90,7 @@ struct SessionsView: View {
             Color(Theme.background)
             ZStack {
                 VStack {
-                    Text("\(session.maxSpeed)km/h")
+                    Text("\(session.maxSpeed.convertFromMs()) \(SPEED_UNIT)" )
                         .foregroundColor(.white)
                         .padding()
                     Text("\(session.maxGForce)G")

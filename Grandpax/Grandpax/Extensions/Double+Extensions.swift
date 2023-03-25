@@ -8,7 +8,7 @@
 import Foundation
 
 extension Double {
-    func convertFromMsToKmh() -> Double {
-        self * 3.6
+    func convertFromMs() -> Double {
+        self * (UserDefaultsManager.Settings.isImperialUnitsSelected ? 2.23694 : 3.6)
     }
 }

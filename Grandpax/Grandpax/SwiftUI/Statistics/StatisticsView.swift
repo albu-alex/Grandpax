@@ -24,6 +24,7 @@ struct StatisticsView: View {
     // MARK: - Properties
     
     private let G_FORCE_TRESHOLD = 7.0
+    private let SPEED_UNIT = UserDefaultsManager.Settings.isImperialUnitsSelected ? "mph" : "km/h"
     
     private var accelerationCurrent: Double {
         currentAcceleration.acceleration
@@ -37,7 +38,7 @@ struct StatisticsView: View {
             HStack {
                 Text("Current speed")
                     .bold()
-                Text(String(format: "%.2f", currentSpeed) + " km/h")
+                Text(String(format: "%.2f", currentSpeed.convertFromMs()) + SPEED_UNIT)
             }
             .foregroundColor(.black)
             .padding(.horizontal, 32)
@@ -46,7 +47,7 @@ struct StatisticsView: View {
             HStack {
                 Text("Top speed")
                     .bold()
-                Text(String(format: "%.2f", maximumSpeed) + " km/h")
+                Text(String(format: "%.2f", maximumSpeed.convertFromMs()) + SPEED_UNIT)
             }
             .foregroundColor(.black)
             .padding(.horizontal, 32)

@@ -101,10 +101,9 @@ extension TrackViewModel: CLLocationManagerDelegate {
         guard let coordinate = manager.location?.coordinate, let speed = manager.location?.speed else { return }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
             userLocations.append(coordinate)
-            let convertedSpeed = speed.convertFromMsToKmh()
-            speedReadings.append(convertedSpeed)
-            currentSpeed = speed < 0 ? 0 : convertedSpeed
-            if convertedSpeed > maximumSpeed { maximumSpeed = convertedSpeed }
+            speedReadings.append(speed)
+            currentSpeed = speed
+            if speed > maximumSpeed { maximumSpeed = speed }
         }
     }
 }
