@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
         present(trackViewController, animated: true)
     }
     @IBAction func onPreviousButtonPressed(_ sender: Any) {
-        let previousViewController = UIHostingController(rootView: PreviousView())
+        let previousViewController = UIHostingController(rootView: SessionsView())
         present(previousViewController, animated: true)
     }
     @IBAction func onSettingsButtonPressed(_ sender: Any) {
@@ -39,6 +39,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Theme.background
+        
         
         setupTitleLabel()
         setupStartTrackingButton()

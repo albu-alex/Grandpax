@@ -23,6 +23,7 @@ struct TrackView: View {
     // MARK: - States
     @StateObject private var trackViewModel = TrackViewModel()
     @StateObject private var mapViewModel = MapViewModel()
+    @StateObject private var sessionsViewModel = SessionsViewModel()
     @State private var isAlertPresented = false
     
     // MARK: - Lifecycle
@@ -36,8 +37,7 @@ struct TrackView: View {
                 }
                 .alert("Are you sure?", isPresented: $isAlertPresented, actions: {
                     Button("OK", role: .destructive) {
-                        trackViewModel.deallocateManagers()
-                        presentationMode.wrappedValue.dismiss()
+                        onCleanup()
                     }
                 }) {
                     Text("Tracking is still in progress")
@@ -93,6 +93,18 @@ struct TrackView: View {
 
         }
         .shadow(color: Color(Colors.shadow) ,radius: 30, y: 25)
+    }
+    
+    private func onCleanup() {
+        trackViewModel.deallocateManagers()
+        
+        let session = Session()
+        session.name = Date().formatted()
+        session.maxSpeed = trackViewModel.maximumSpeed
+        session.maxGForce = trackViewModel.maximumAcceleration.acceleration
+        sessionsViewModel.addSession(session)
+        
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
