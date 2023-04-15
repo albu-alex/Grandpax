@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 final class SettingsViewModel: ObservableObject {
     
@@ -23,6 +24,19 @@ final class SettingsViewModel: ObservableObject {
     @Published var isFollowingCurrentLocation = UserDefaultsManager.Settings.isFollowingCurrentLocation {
         didSet {
             UserDefaultsManager.Settings.isFollowingCurrentLocation = isFollowingCurrentLocation
+        }
+    }
+    
+    @Published var isFaceIDEnabled = UserDefaultsManager.Settings.isFaceIDEnabled {
+        didSet {
+            UserDefaultsManager.Settings.isFaceIDEnabled = isFaceIDEnabled
+            guard isFaceIDEnabled else { return }
+            let biometricsCompletion: BiometricsCompletion = { success, error in
+                guard let error else { return }
+                print(error)
+                UserDefaultsManager.Settings.isFaceIDEnabled = false
+            }
+            BiometricsManager.faceIDSecurity(completion: biometricsCompletion)
         }
     }
 }

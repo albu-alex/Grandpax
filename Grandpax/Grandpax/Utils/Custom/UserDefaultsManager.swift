@@ -17,6 +17,9 @@ enum UserDefaultsManager {
         
         @UserDefault("\(Self.self)FollowingCurrentLocation", defaultValue: true)
         static var isFollowingCurrentLocation: Bool
+        
+        @UserDefault("\(Self.self)FaceIDEnabled", defaultValue: false)
+        static var isFaceIDEnabled: Bool
     }
 }
 

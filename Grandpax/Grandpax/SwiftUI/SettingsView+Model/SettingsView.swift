@@ -61,6 +61,13 @@ struct SettingsView: View {
                         Toggle("", isOn: $viewModel.isFollowingCurrentLocation)
                             .labelsHidden()
                     }
+                    HStack {
+                        Image(systemName: "faceid")
+                        Text("Secure telemetry data with Face ID")
+                        Spacer()
+                        Toggle("", isOn: $viewModel.isFaceIDEnabled)
+                            .labelsHidden()
+                    }
                     Spacer()
                 }
                 .tint(Color(toggleColor))
