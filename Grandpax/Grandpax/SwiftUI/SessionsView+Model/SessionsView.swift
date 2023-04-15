@@ -22,8 +22,6 @@ struct SessionsView: View {
     
     // MARK: - Properties
     
-    private let SPEED_UNIT = UserDefaultsManager.Settings.isImperialUnitsSelected ? "mph" : "km/h"
-    
     private var headerText: Text {
         let sessionsCount = viewModel.sessions.count
         let timesString = sessionsCount == 1 ? "time" : "times"
@@ -60,7 +58,8 @@ struct SessionsView: View {
                 NavigationView {
                     List(viewModel.sessions) { session in
                         NavigationLink {
-                            sessionDetailsView(session: session)
+                            SessionDetailsView(previousSessions: viewModel.sessions, session: session)
+                                .navigationBarBackButtonHidden(true)
                         } label: {
                             Text(session.name)
                                 .foregroundColor(Color(Theme.textColor))
@@ -84,26 +83,104 @@ struct SessionsView: View {
             }
         }
     }
+}
+
+fileprivate struct SessionDetailsView: View {
     
-    private func sessionDetailsView(session: Session) -> some View {
+    // MARK: - Environment
+    
+    @Environment(\.presentationMode) private var presentationMode
+    
+    // MARK: - Properties
+    
+    private let SPEED_UNIT = UserDefaultsManager.Settings.isImperialUnitsSelected ? "mph" : "km/h"
+   
+    private let previousSessions: [Session]
+    private let session: Session
+    private let selectedSessionIndex: Int
+    private let sessionMetrics: [String]
+    
+    // MARK: - Lifecycle
+    
+    init(previousSessions: [Session], session: Session) {
+        self.previousSessions = previousSessions
+        self.session = session
+        
+        selectedSessionIndex = previousSessions.firstIndex(of: session) ?? 0
+        sessionMetrics = ["Speed", "G-Force"]
+    }
+    
+    var body: some View {
         ZStack {
             Color(Theme.background)
-            ZStack {
-                VStack {
-                    Text("\(session.maxSpeed.convertFromMs()) \(SPEED_UNIT)" )
-                        .foregroundColor(.white)
-                        .padding()
-                    Text("\(session.maxGForce)G")
-                        .foregroundColor(.white)
-                        .padding()
+            ScrollView {
+                HStack {
+                    ActionButton(image: Image(systemName: "arrow.left")) {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                    Spacer()
                 }
-                .padding(.vertical, 120)
-                .padding(.horizontal, 60)
+                VStack {
+                    ForEach(sessionMetrics, id: \.self) { metric in
+                        categoryView(description: metric, values: categoryValues(metric))
+                    }
+                }
             }
-            .background(.ultraThinMaterial.opacity(0.5))
-            .cornerRadius(24)
         }
         .ignoresSafeArea()
+    }
+    
+    // MARK: - Properties
+    
+    private func categoryValues(_ category: String) -> [Double] {
+        category == "Speed" ?
+            previousSessions.map { $0.maxSpeed.convertFromMs() } :
+            previousSessions.map { $0.maxGForce }
+    }
+    
+    private func categoryView(description: String, values: [Double]) -> some View {
+        return ZStack {
+            VStack {
+                Text(description)
+                    .foregroundColor(.white)
+                    .padding()
+                barChartView(values: values)
+            }
+            .padding(.vertical, 40)
+            .padding(.horizontal, 20)
+        }
+        .background(.ultraThinMaterial.opacity(0.5))
+        .cornerRadius(24)
+    }
+    
+    private func barChartView(values: [Double]) -> some View {
+        let selectedBarColor = Color(Theme.accentBackground)
+        let barColor = Color(Theme.accentColor)
+        
+        let selectedValue = values[selectedSessionIndex]
+        let lowerValues = values.filter { $0 < selectedValue }.count
+        
+        let minValue = (values.min() ?? 0) * 0.9
+        let maxValue = (values.max() ?? 0) * 1.1
+        
+        return VStack(alignment: .leading, spacing: 10) {
+            Text("Higher stat compared to \(lowerValues) sessions!")
+                .font(.caption)
+            
+            Chart(values, id: \.self) { value in
+                BarMark(
+                    x: .value("\(values.firstIndex(of: value)!)", values.firstIndex(of: value)!),
+                    y: .value("\(value)", value)
+                )
+                .foregroundStyle(selectedSessionIndex == values.firstIndex(of: value)! ? selectedBarColor : barColor)
+                .cornerRadius(4)
+            }
+//            .chartYScale(domain: minValue...maxValue)
+            .chartYAxis {
+                AxisMarks(position: .leading)
+            }
+            .frame(width: 300, height: 200)
+        }
     }
 }
 
