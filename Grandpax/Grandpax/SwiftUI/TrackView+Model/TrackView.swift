@@ -83,7 +83,7 @@ struct TrackView: View {
                     trackViewModel.isCenteringLocation = false
                 }
             StatisticsView(
-                currentAcceleration: $trackViewModel.acceleration,
+                currentAcceleration: $trackViewModel.currentAcceleration,
                 maximumAcceleration: $trackViewModel.maximumAcceleration,
                 currentSpeed: $trackViewModel.currentSpeed,
                 maximumSpeed: $trackViewModel.maximumSpeed

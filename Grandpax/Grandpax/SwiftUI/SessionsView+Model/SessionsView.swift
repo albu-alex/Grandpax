@@ -125,6 +125,7 @@ fileprivate struct SessionDetailsView: View {
                         categoryView(description: metric, values: categoryValues(metric))
                     }
                 }
+                .padding(.bottom, 25)
             }
         }
         .ignoresSafeArea()
@@ -191,27 +192,3 @@ struct PreviousView_Previews: PreviewProvider {
         SessionsView()
     }
 }
-
-
-//var body: some View {
-//    VStack {
-//        GroupBox("Stats from previous sessions") {
-//            Chart(previousSessions, id: \.name) { session in
-//                BarMark(
-//                    x: .value("Session", session.name),
-//                    y: .value("Top Speed", session.value)
-//                )
-//            }
-//            .chartYAxis {
-//                AxisMarks(position: .leading)
-//            }
-//            .chartForegroundStyleScale([
-//                "Max G-Force" : Color(hue: 0.10, saturation: 0.70, brightness: 0.90),
-//                "Top Speed": Color(hue: 0.80, saturation: 0.70, brightness: 0.80)
-//            ])
-//        }
-//        .frame(height: 500)
-//        Spacer()
-//    }
-//    .padding()
-//}

@@ -32,7 +32,7 @@ final class TrackViewModel: NSObject, ObservableObject {
     
     // MARK: - States
     
-    @Published var acceleration = CMAcceleration()
+    @Published var currentAcceleration = CMAcceleration()
     @Published var maximumAcceleration = CMAcceleration()
     @Published var currentSpeed = CLLocationSpeed()
     @Published var maximumSpeed = CLLocationSpeed()
@@ -67,7 +67,7 @@ final class TrackViewModel: NSObject, ObservableObject {
         motionManager.startAccelerometerUpdates(to: .main) { [weak self] (data, error) in
             guard let self, let acceleration = data?.acceleration else { return }
             self.accelerationReadings.append(acceleration)
-            self.acceleration = acceleration
+            self.currentAcceleration = acceleration
             if acceleration.isGreater(than: self.maximumAcceleration) { self.maximumAcceleration = acceleration }
         }
         self.motionManager = motionManager
@@ -99,7 +99,7 @@ extension TrackViewModel: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let coordinate = manager.location?.coordinate, let speed = manager.location?.speed else { return }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [self] in
+        DispatchQueue.main.async { [self] in
             userLocations.append(coordinate)
             speedReadings.append(speed)
             currentSpeed = speed
