@@ -161,9 +161,6 @@ fileprivate struct SessionDetailsView: View {
         let selectedValue = values[selectedSessionIndex]
         let lowerValues = values.filter { $0 < selectedValue }.count
         
-        let minValue = (values.min() ?? 0) * 0.9
-        let maxValue = (values.max() ?? 0) * 1.1
-        
         return VStack(alignment: .leading, spacing: 10) {
             Text("Higher stat compared to \(lowerValues) sessions!")
                 .font(.caption)
@@ -176,7 +173,6 @@ fileprivate struct SessionDetailsView: View {
                 .foregroundStyle(selectedSessionIndex == values.firstIndex(of: value)! ? selectedBarColor : barColor)
                 .cornerRadius(4)
             }
-//            .chartYScale(domain: minValue...maxValue)
             .chartYAxis {
                 AxisMarks(position: .leading)
             }

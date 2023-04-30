@@ -79,12 +79,10 @@ final class TrackViewModel: NSObject, ObservableObject {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .restricted:
-            ToastService.shared.showToast(message: "Location is restricted")
+            ToastService.shared.showToast(message: "Location is restricted", type: .info)
         case .denied:
-            ToastService.shared.showToast(message: "Location is denied")
-        case .authorizedAlways, .authorizedWhenInUse:
-            ToastService.shared.showToast(message: "Ready to use!")
-        @unknown default:
+            ToastService.shared.showToast(message: "Location is denied", type: .info)
+        default:
             break
         }
     }
@@ -94,7 +92,10 @@ final class TrackViewModel: NSObject, ObservableObject {
 
 extension TrackViewModel: CLLocationManagerDelegate {
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        checkLocationAuthorization()
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            checkLocationAuthorization()
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
