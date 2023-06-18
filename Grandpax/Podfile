@@ -6,5 +6,11 @@ target 'Grandpax' do
   # Pods for Grandpax
   pod 'RealmSwift'
   pod 'SwiftLint'
+end
 
+target 'GrandpaxTests' do
+  use_frameworks!
+
+  pod 'RealmSwift'
+  pod 'SwiftLint'
 end

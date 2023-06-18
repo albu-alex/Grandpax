@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		89EDC7B2A98D7783075AD8C5 /* Pods_Grandpax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D13DDCB5251E9390E80229D8 /* Pods_Grandpax.framework */; };
+		145CF09BDC07E28AE5F930B8 /* Pods_GrandpaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD4AAA1ED9F89CCEB40DB033 /* Pods_GrandpaxTests.framework */; };
+		6F00A0856C3686B173649C56 /* Pods_Grandpax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D57F3652023ECDE81BA4FBA /* Pods_Grandpax.framework */; };
+		DC09C7AA2A3F2362009BE60A /* SessionsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7A92A3F2362009BE60A /* SessionsViewModelTests.swift */; };
+		DC09C7B12A3F2D15009BE60A /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7B02A3F2D15009BE60A /* SettingsViewModelTests.swift */; };
+		DC09C7B32A3F3056009BE60A /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7B22A3F3056009BE60A /* MapViewModelTests.swift */; };
 		DC133DB22916C475000B5046 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB12916C475000B5046 /* TrackViewModel.swift */; };
 		DC133DB4291709C0000B5046 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC133DB3291709C0000B5046 /* StatisticsView.swift */; };
 		DC16514E29BA8DF800E9990B /* ToastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC16514D29BA8DF800E9990B /* ToastService.swift */; };
@@ -42,9 +46,26 @@
 		DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27C129167A0200F6BDD4 /* ActionButton.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DC09C7AB2A3F2362009BE60A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCD4F3AC290D374900E18516 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCD4F3B3290D374900E18516;
+			remoteInfo = Grandpax;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
-		20D776B26529F5BA07744CC6 /* Pods-Grandpax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.debug.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.debug.xcconfig"; sourceTree = "<group>"; };
-		D13DDCB5251E9390E80229D8 /* Pods_Grandpax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grandpax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D57F3652023ECDE81BA4FBA /* Pods_Grandpax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grandpax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D53127C9AAF771F97F3B4EB /* Pods-GrandpaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandpaxTests.release.xcconfig"; path = "Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests.release.xcconfig"; sourceTree = "<group>"; };
+		71C0B9CF7586EA74B98F2F2A /* Pods-GrandpaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandpaxTests.debug.xcconfig"; path = "Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AAA68B2C95BE97D9AD5285BD /* Pods-Grandpax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.debug.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.debug.xcconfig"; sourceTree = "<group>"; };
+		BD4AAA1ED9F89CCEB40DB033 /* Pods_GrandpaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandpaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC09C7A72A3F2362009BE60A /* GrandpaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrandpaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC09C7A92A3F2362009BE60A /* SessionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewModelTests.swift; sourceTree = "<group>"; };
+		DC09C7B02A3F2D15009BE60A /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
+		DC09C7B22A3F3056009BE60A /* MapViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModelTests.swift; sourceTree = "<group>"; };
 		DC133DB12916C475000B5046 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
 		DC133DB3291709C0000B5046 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		DC16514D29BA8DF800E9990B /* ToastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastService.swift; sourceTree = "<group>"; };
@@ -79,15 +100,23 @@
 		DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extensions.swift"; sourceTree = "<group>"; };
 		DCEE27BF29166D2600F6BDD4 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		DCEE27C129167A0200F6BDD4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
-		FFD320094D7A016B7CFF2F98 /* Pods-Grandpax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.release.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.release.xcconfig"; sourceTree = "<group>"; };
+		FBF4460F01258B7C4CDB5718 /* Pods-Grandpax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.release.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DC09C7A42A3F2362009BE60A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				145CF09BDC07E28AE5F930B8 /* Pods_GrandpaxTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCD4F3B1290D374900E18516 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89EDC7B2A98D7783075AD8C5 /* Pods_Grandpax.framework in Frameworks */,
+				6F00A0856C3686B173649C56 /* Pods_Grandpax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,18 +126,31 @@
 		3B1E317C7F35FEF53E5B58BF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				20D776B26529F5BA07744CC6 /* Pods-Grandpax.debug.xcconfig */,
-				FFD320094D7A016B7CFF2F98 /* Pods-Grandpax.release.xcconfig */,
+				AAA68B2C95BE97D9AD5285BD /* Pods-Grandpax.debug.xcconfig */,
+				FBF4460F01258B7C4CDB5718 /* Pods-Grandpax.release.xcconfig */,
+				71C0B9CF7586EA74B98F2F2A /* Pods-GrandpaxTests.debug.xcconfig */,
+				6D53127C9AAF771F97F3B4EB /* Pods-GrandpaxTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D81BD14527FCF7BB113AA1EB /* Frameworks */ = {
+		59300C319FD2E0DF8DFA06F1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D13DDCB5251E9390E80229D8 /* Pods_Grandpax.framework */,
+				1D57F3652023ECDE81BA4FBA /* Pods_Grandpax.framework */,
+				BD4AAA1ED9F89CCEB40DB033 /* Pods_GrandpaxTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC09C7A82A3F2362009BE60A /* GrandpaxTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC09C7A92A3F2362009BE60A /* SessionsViewModelTests.swift */,
+				DC09C7B02A3F2D15009BE60A /* SettingsViewModelTests.swift */,
+				DC09C7B22A3F3056009BE60A /* MapViewModelTests.swift */,
+			);
+			path = GrandpaxTests;
 			sourceTree = "<group>";
 		};
 		DC10342D295B81990084AC9F /* Statistics */ = {
@@ -192,9 +234,10 @@
 			isa = PBXGroup;
 			children = (
 				DCD4F3B6290D374900E18516 /* Grandpax */,
+				DC09C7A82A3F2362009BE60A /* GrandpaxTests */,
 				DCD4F3B5290D374900E18516 /* Products */,
 				3B1E317C7F35FEF53E5B58BF /* Pods */,
-				D81BD14527FCF7BB113AA1EB /* Frameworks */,
+				59300C319FD2E0DF8DFA06F1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				DCD4F3B4290D374900E18516 /* Grandpax.app */,
+				DC09C7A72A3F2362009BE60A /* GrandpaxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,15 +304,35 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DC09C7A62A3F2362009BE60A /* GrandpaxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC09C7AF2A3F2363009BE60A /* Build configuration list for PBXNativeTarget "GrandpaxTests" */;
+			buildPhases = (
+				5BF02DD2C09A2DC86D673735 /* [CP] Check Pods Manifest.lock */,
+				DC09C7A32A3F2362009BE60A /* Sources */,
+				DC09C7A42A3F2362009BE60A /* Frameworks */,
+				DC09C7A52A3F2362009BE60A /* Resources */,
+				1ACF08F5A264D7AC557D9833 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC09C7AC2A3F2362009BE60A /* PBXTargetDependency */,
+			);
+			name = GrandpaxTests;
+			productName = GrandpaxTests;
+			productReference = DC09C7A72A3F2362009BE60A /* GrandpaxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DCD4F3B3290D374900E18516 /* Grandpax */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCD4F3CB290D374D00E18516 /* Build configuration list for PBXNativeTarget "Grandpax" */;
 			buildPhases = (
-				3780AF84AF619D576A9173D4 /* [CP] Check Pods Manifest.lock */,
+				9BDF782E14CE7A9DBE01873F /* [CP] Check Pods Manifest.lock */,
 				DCD4F3B0290D374900E18516 /* Sources */,
 				DCD4F3B1290D374900E18516 /* Frameworks */,
 				DCD4F3B2290D374900E18516 /* Resources */,
-				5F83C6D8E27762E94B1EFAD3 /* [CP] Embed Pods Frameworks */,
+				616AF81441CADBEEA4E75C84 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,9 +350,13 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					DC09C7A62A3F2362009BE60A = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = DCD4F3B3290D374900E18516;
+					};
 					DCD4F3B3290D374900E18516 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -308,11 +376,19 @@
 			projectRoot = "";
 			targets = (
 				DCD4F3B3290D374900E18516 /* Grandpax */,
+				DC09C7A62A3F2362009BE60A /* GrandpaxTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DC09C7A52A3F2362009BE60A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCD4F3B2290D374900E18516 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,7 +402,63 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3780AF84AF619D576A9173D4 /* [CP] Check Pods Manifest.lock */ = {
+		1ACF08F5A264D7AC557D9833 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BF02DD2C09A2DC86D673735 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GrandpaxTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		616AF81441CADBEEA4E75C84 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BDF782E14CE7A9DBE01873F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -348,26 +480,19 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5F83C6D8E27762E94B1EFAD3 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DC09C7A32A3F2362009BE60A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC09C7AA2A3F2362009BE60A /* SessionsViewModelTests.swift in Sources */,
+				DC09C7B32A3F3056009BE60A /* MapViewModelTests.swift in Sources */,
+				DC09C7B12A3F2D15009BE60A /* SettingsViewModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCD4F3B0290D374900E18516 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -406,6 +531,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DC09C7AC2A3F2362009BE60A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCD4F3B3290D374900E18516 /* Grandpax */;
+			targetProxy = DC09C7AB2A3F2362009BE60A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		DCD4F3BD290D374900E18516 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -426,6 +559,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		DC09C7AD2A3F2363009BE60A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71C0B9CF7586EA74B98F2F2A /* Pods-GrandpaxTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G22R3G9GQ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackathon.GrandpaxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Grandpax.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Grandpax";
+			};
+			name = Debug;
+		};
+		DC09C7AE2A3F2363009BE60A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D53127C9AAF771F97F3B4EB /* Pods-GrandpaxTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = G22R3G9GQ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hackathon.GrandpaxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Grandpax.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Grandpax";
+			};
+			name = Release;
+		};
 		DCD4F3C9290D374D00E18516 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -542,7 +715,7 @@
 		};
 		DCD4F3CC290D374D00E18516 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 20D776B26529F5BA07744CC6 /* Pods-Grandpax.debug.xcconfig */;
+			baseConfigurationReference = AAA68B2C95BE97D9AD5285BD /* Pods-Grandpax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -574,7 +747,7 @@
 		};
 		DCD4F3CD290D374D00E18516 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFD320094D7A016B7CFF2F98 /* Pods-Grandpax.release.xcconfig */;
+			baseConfigurationReference = FBF4460F01258B7C4CDB5718 /* Pods-Grandpax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -607,6 +780,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DC09C7AF2A3F2363009BE60A /* Build configuration list for PBXNativeTarget "GrandpaxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC09C7AD2A3F2363009BE60A /* Debug */,
+				DC09C7AE2A3F2363009BE60A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DCD4F3AF290D374900E18516 /* Build configuration list for PBXProject "Grandpax" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
