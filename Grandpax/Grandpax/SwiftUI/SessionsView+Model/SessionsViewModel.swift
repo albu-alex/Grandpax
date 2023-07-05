@@ -38,9 +38,9 @@ class SessionsViewModel: ObservableObject {
     func softRemoveSession(_ session: Session) {
         if let sessionIndex = sessions.firstIndex(of: session) {
             sessions.remove(at: sessionIndex)
-            ToastService.shared.showToast(message: "Session removed successfully!")
+            ToastService.shared.showToast(message: "Session removed successfully!", type: .success)
         } else {
-            ToastService.shared.showToast(message: "There was an error removing the session")
+            ToastService.shared.showToast(message: "There was an error removing the session", type: .error)
         }
     }
     
@@ -50,9 +50,9 @@ class SessionsViewModel: ObservableObject {
                 realm.add(session)
             }
         } catch {
-            ToastService.shared.showToast(message: "There was an error adding the session")
+            ToastService.shared.showToast(message: "There was an error adding the session", type: .error)
         }
-        ToastService.shared.showToast(message: "Session added successfully!")
+        ToastService.shared.showToast(message: "Session added successfully!", type: .success)
     }
     
     private func hardRemoveSession(_ session: Session) {

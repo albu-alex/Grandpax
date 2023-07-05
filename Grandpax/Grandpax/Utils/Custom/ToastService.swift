@@ -11,27 +11,29 @@ struct ToastService {
     
     static let shared = ToastService()
 
-    func showToast(message: String, font: UIFont = UIFont.systemFont(ofSize: 14.0), bgColor: UIColor = UIColor.red.withAlphaComponent(0.6), textColor: UIColor = UIColor.white, duration: TimeInterval = 2.0) {
-        
+    func showToast(message: String, type: ToastType, duration: TimeInterval = 1.5) {
         let toastLabel = createToastLabel()
         toastLabel.text = message
-        toastLabel.font = font
-        toastLabel.backgroundColor = bgColor
-        toastLabel.textColor = textColor
+        toastLabel.font = UIFont.systemFont(ofSize: 14.0)
+        toastLabel.backgroundColor = getBackgroundForToast(type)
+        toastLabel.textColor = Theme.textColor
         
-        if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+        if let window = UIApplication.keyWindow {
             window.addSubview(toastLabel)
 
             NSLayoutConstraint.activate([
                 toastLabel.topAnchor.constraint(equalTo: window.topAnchor, constant: 72),
                 toastLabel.leadingAnchor.constraint(equalTo: window.leadingAnchor, constant: 24),
-                toastLabel.trailingAnchor.constraint(equalTo: window.trailingAnchor, constant: -24)
+                toastLabel.trailingAnchor.constraint(equalTo: window.trailingAnchor, constant: -24),
+                toastLabel.heightAnchor.constraint(equalToConstant: 48)
             ])
 
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveEaseInOut, animations: {
+            UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseInOut, animations: {
+                toastLabel.frame.origin.y = 144
                 toastLabel.alpha = 1.0
             }, completion: { _ in
-                UIView.animate(withDuration: duration, delay: 0.5, options: .curveEaseInOut, animations: {
+                UIView.animate(withDuration: duration, delay: duration, options: .curveEaseInOut, animations: {
+                    toastLabel.frame.origin.y = -72
                     toastLabel.alpha = 0.0
                 }, completion: { _ in
                     toastLabel.removeFromSuperview()
@@ -50,4 +52,14 @@ struct ToastService {
         return toastLabel
     }
     
+    private func getBackgroundForToast(_ type: ToastType) -> UIColor {
+        switch type {
+            case .error:
+                return .red.withAlphaComponent(0.8)
+            case .info:
+                return .systemYellow.withAlphaComponent(0.6)
+            case .success:
+                return Theme.accentBackground.withAlphaComponent(0.8)
+        }
+    }
 }

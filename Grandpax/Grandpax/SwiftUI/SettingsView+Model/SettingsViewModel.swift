@@ -29,12 +29,13 @@ final class SettingsViewModel: ObservableObject {
     
     @Published var isFaceIDEnabled = UserDefaultsManager.Settings.isFaceIDEnabled {
         didSet {
-            UserDefaultsManager.Settings.isFaceIDEnabled = isFaceIDEnabled
-            guard isFaceIDEnabled else { return }
+            guard oldValue else {
+                UserDefaultsManager.Settings.isFaceIDEnabled = isFaceIDEnabled
+                return
+            }
             let biometricsCompletion: BiometricsCompletion = { success, error in
-                guard let error else { return }
-                print(error)
-                UserDefaultsManager.Settings.isFaceIDEnabled = false
+                guard error != nil else { return }
+                self.isFaceIDEnabled = true
             }
             BiometricsManager.faceIDSecurity(completion: biometricsCompletion)
         }

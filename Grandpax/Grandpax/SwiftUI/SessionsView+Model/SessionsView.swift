@@ -125,6 +125,7 @@ fileprivate struct SessionDetailsView: View {
                         categoryView(description: metric, values: categoryValues(metric))
                     }
                 }
+                .padding(.bottom, 25)
             }
         }
         .ignoresSafeArea()
@@ -160,9 +161,6 @@ fileprivate struct SessionDetailsView: View {
         let selectedValue = values[selectedSessionIndex]
         let lowerValues = values.filter { $0 < selectedValue }.count
         
-        let minValue = (values.min() ?? 0) * 0.9
-        let maxValue = (values.max() ?? 0) * 1.1
-        
         return VStack(alignment: .leading, spacing: 10) {
             Text("Higher stat compared to \(lowerValues) sessions!")
                 .font(.caption)
@@ -175,7 +173,6 @@ fileprivate struct SessionDetailsView: View {
                 .foregroundStyle(selectedSessionIndex == values.firstIndex(of: value)! ? selectedBarColor : barColor)
                 .cornerRadius(4)
             }
-//            .chartYScale(domain: minValue...maxValue)
             .chartYAxis {
                 AxisMarks(position: .leading)
             }
@@ -191,27 +188,3 @@ struct PreviousView_Previews: PreviewProvider {
         SessionsView()
     }
 }
-
-
-//var body: some View {
-//    VStack {
-//        GroupBox("Stats from previous sessions") {
-//            Chart(previousSessions, id: \.name) { session in
-//                BarMark(
-//                    x: .value("Session", session.name),
-//                    y: .value("Top Speed", session.value)
-//                )
-//            }
-//            .chartYAxis {
-//                AxisMarks(position: .leading)
-//            }
-//            .chartForegroundStyleScale([
-//                "Max G-Force" : Color(hue: 0.10, saturation: 0.70, brightness: 0.90),
-//                "Top Speed": Color(hue: 0.80, saturation: 0.70, brightness: 0.80)
-//            ])
-//        }
-//        .frame(height: 500)
-//        Spacer()
-//    }
-//    .padding()
-//}
