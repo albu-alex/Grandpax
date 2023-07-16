@@ -37,7 +37,9 @@ struct TrackView: View {
                 }
                 .alert("Are you sure?", isPresented: $isAlertPresented, actions: {
                     Button("OK", role: .destructive) {
-                        onCleanup()
+                        Task {
+                            await onCleanup()
+                        }
                     }
                 }) {
                     Text("Tracking is still in progress")
@@ -95,15 +97,17 @@ struct TrackView: View {
         .shadow(color: Color(Colors.shadow) ,radius: 30, y: 25)
     }
     
-    private func onCleanup() {
+    private func onCleanup() async {
         defer { presentationMode.wrappedValue.dismiss() }
         trackViewModel.deallocateManagers()
         
         guard UserDefaultsManager.Settings.isSavingTrackingData else { return }
+        
         let session = Session()
         session.name = Date().formatted()
         session.maxSpeed = trackViewModel.maximumSpeed
         session.maxGForce = trackViewModel.maximumAcceleration.acceleration
+        session.mapSnapshot = await mapViewModel.createSnapshot() ?? ""
         sessionsViewModel.addSession(session)
     }
 }

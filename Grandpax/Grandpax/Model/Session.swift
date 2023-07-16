@@ -12,4 +12,5 @@ class Session: Object, ObjectKeyIdentifiable {
     @Persisted var name: String
     @Persisted var maxGForce: Double
     @Persisted var maxSpeed: Double
+    @Persisted var mapSnapshot: String
 }
