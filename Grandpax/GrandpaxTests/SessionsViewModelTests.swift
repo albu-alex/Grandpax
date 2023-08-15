@@ -29,18 +29,18 @@ class SessionsViewModelTests: XCTestCase {
     
     func testAddSession() {
         // Given
-        let session = Session()
+        let session = RealmSession()
         
         // When
         viewModel.addSession(session)
         
         // Then
-        XCTAssertTrue(viewModel.realm.objects(Session.self).count == viewModel.sessions.count + 1)
+        XCTAssertTrue(viewModel.realm.objects(RealmSession.self).count == viewModel.sessions.count + 1)
     }
     
     func testSoftRemoveSession() {
         // Given
-        let session = Session()
+        let session = RealmSession()
         viewModel.addSession(session)
         
         // When
@@ -52,9 +52,9 @@ class SessionsViewModelTests: XCTestCase {
     
     func testHardRemoveSessions() {
         // Given
-        let session1 = Session()
-        let session2 = Session()
-        let session3 = Session()
+        let session1 = RealmSession()
+        let session2 = RealmSession()
+        let session3 = RealmSession()
         viewModel.addSession(session1)
         viewModel.addSession(session2)
         viewModel.addSession(session3)

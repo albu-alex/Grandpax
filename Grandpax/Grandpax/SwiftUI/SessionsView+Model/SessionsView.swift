@@ -17,7 +17,8 @@ struct SessionsView: View {
     
     // MARK: - States
     
-    @State private var isAlertPresented = false
+    @State private var isActivityControllerPresented = false
+    @State private var mapSnapshot = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
     @StateObject var viewModel = SessionsViewModel()
     
     // MARK: - Properties
@@ -74,12 +75,24 @@ struct SessionsView: View {
                                 Image(systemName: "trash")
                             })
                             .tint(.red)
+                            Button(action: {
+                                mapSnapshot = session.mapSnapshot
+                                DispatchQueue.main.async {
+                                    self.isActivityControllerPresented = true
+                                }
+                            }, label: {
+                                Image(systemName: "square.and.arrow.up")
+                            })
+                            .tint(.blue)
                         }
                     }
                     .background(Color(Theme.background))
                     .scrollContentBackground(.hidden)
                 }
                 .toolbar(.hidden)
+                .sheet(isPresented: $isActivityControllerPresented) {
+                     viewModel.presentActivityViewControllerWithSnapshot(mapSnapshot)
+                }
             }
         }
     }

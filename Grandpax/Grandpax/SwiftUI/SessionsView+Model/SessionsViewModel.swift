@@ -35,6 +35,16 @@ class SessionsViewModel: ObservableObject {
         }
     }
     
+    func presentActivityViewControllerWithSnapshot(_ snapshot: String?) -> ActivityViewController {
+        if let snapshot {
+            let imageData = Data(base64Encoded: snapshot) ?? Data()
+            let items: [AnyObject] = [UIImage(data: imageData) ?? UIImage()]
+            return ActivityViewController(activityItems: items)
+        }
+        
+        return ActivityViewController(activityItems: [])
+    }
+    
     func softRemoveSession(_ session: Session) {
         if let sessionIndex = sessions.firstIndex(of: session) {
             sessions.remove(at: sessionIndex)

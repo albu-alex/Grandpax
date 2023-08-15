@@ -40,6 +40,7 @@
 		DCD4F3D7290E7FCB00E18516 /* CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */; };
 		DCDACE2429FEF84700A8A049 /* ToastType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDACE2329FEF84700A8A049 /* ToastType.swift */; };
 		DCDACE2629FF148800A8A049 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDACE2529FF148800A8A049 /* UIApplication+Extensions.swift */; };
+		DCDCD2372A647CDD00391266 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDCD2362A647CDD00391266 /* ActivityViewController.swift */; };
 		DCDFC8BA29C2596D00C61DA5 /* SessionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDFC8B929C2596D00C61DA5 /* SessionsViewModel.swift */; };
 		DCEE27BA291663A400F6BDD4 /* MKMapView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */; };
 		DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27BF29166D2600F6BDD4 /* TrackView.swift */; };
@@ -96,6 +97,7 @@
 		DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerRadius.swift; sourceTree = "<group>"; };
 		DCDACE2329FEF84700A8A049 /* ToastType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastType.swift; sourceTree = "<group>"; };
 		DCDACE2529FF148800A8A049 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		DCDCD2362A647CDD00391266 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		DCDFC8B929C2596D00C61DA5 /* SessionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewModel.swift; sourceTree = "<group>"; };
 		DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extensions.swift"; sourceTree = "<group>"; };
 		DCEE27BF29166D2600F6BDD4 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				DCC78C832937C29F00CF2F8B /* MapView+Model */,
 				DCC78C822937C28300CF2F8B /* TrackView+Model */,
 				DCEE27C129167A0200F6BDD4 /* ActionButton.swift */,
+				DCDCD2362A647CDD00391266 /* ActivityViewController.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				DCA65CBF2938FEDD00B2C7B7 /* SettingsView.swift in Sources */,
 				DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */,
 				DC961CF729DCB10900E02154 /* BiometricsManager.swift in Sources */,
+				DCDCD2372A647CDD00391266 /* ActivityViewController.swift in Sources */,
 				DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */,
 				DC18837829B92F60001FD2DD /* Session.swift in Sources */,
 				DC96DB56291AEFDA00688A91 /* CMAcceleration+Extensions.swift in Sources */,
