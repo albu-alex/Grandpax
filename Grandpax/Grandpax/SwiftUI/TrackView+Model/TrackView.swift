@@ -103,12 +103,17 @@ struct TrackView: View {
         
         guard UserDefaultsManager.Settings.isSavingTrackingData else { return }
         
+        let session = await instantiateNewSession()
+        sessionsViewModel.addSession(session)
+    }
+    
+    private func instantiateNewSession() async -> Session {
         let session = Session()
         session.name = Date().formatted()
         session.maxSpeed = trackViewModel.maximumSpeed
         session.maxGForce = trackViewModel.maximumAcceleration.acceleration
         session.mapSnapshot = await mapViewModel.createSnapshot() ?? ""
-        sessionsViewModel.addSession(session)
+        return session
     }
 }
 

@@ -9,6 +9,10 @@ import SwiftUI
 import Charts
 import RealmSwift
 
+fileprivate class MySession {
+    var mapSnapshot: String = ""
+}
+
 struct SessionsView: View {
     
     // MARK: - Environment
@@ -77,9 +81,6 @@ struct SessionsView: View {
                             .tint(.red)
                             Button(action: {
                                 mapSnapshot = session.mapSnapshot
-                                DispatchQueue.main.async {
-                                    self.isActivityControllerPresented = true
-                                }
                             }, label: {
                                 Image(systemName: "square.and.arrow.up")
                             })
@@ -90,6 +91,9 @@ struct SessionsView: View {
                     .scrollContentBackground(.hidden)
                 }
                 .toolbar(.hidden)
+                .onChange(of: mapSnapshot) { _ in
+                    isActivityControllerPresented = true
+                }
                 .sheet(isPresented: $isActivityControllerPresented) {
                      viewModel.presentActivityViewControllerWithSnapshot(mapSnapshot)
                 }

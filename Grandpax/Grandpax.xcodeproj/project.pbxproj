@@ -45,6 +45,7 @@
 		DCEE27BA291663A400F6BDD4 /* MKMapView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */; };
 		DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27BF29166D2600F6BDD4 /* TrackView.swift */; };
 		DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCEE27C129167A0200F6BDD4 /* ActionButton.swift */; };
+		DCFA20A92A92B9B4001E0A27 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFA20A82A92B9B4001E0A27 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		DCEE27B9291663A400F6BDD4 /* MKMapView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView+Extensions.swift"; sourceTree = "<group>"; };
 		DCEE27BF29166D2600F6BDD4 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		DCEE27C129167A0200F6BDD4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		DCFA20A82A92B9B4001E0A27 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		FBF4460F01258B7C4CDB5718 /* Pods-Grandpax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.release.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -286,6 +288,7 @@
 				DC489F2B291B8EFE005B401A /* Double+Extensions.swift */,
 				DC80CD43292AA71700DAB655 /* CLLocationCoordinate2D+Extensions.swift */,
 				DCDACE2529FF148800A8A049 /* UIApplication+Extensions.swift */,
+				DCFA20A82A92B9B4001E0A27 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -524,6 +527,7 @@
 				DCC78C812937B8A200CF2F8B /* MapViewModel.swift in Sources */,
 				DC489F2C291B8EFE005B401A /* Double+Extensions.swift in Sources */,
 				DCEE27BA291663A400F6BDD4 /* MKMapView+Extensions.swift in Sources */,
+				DCFA20A92A92B9B4001E0A27 /* UIImage+Extensions.swift in Sources */,
 				DCC78C7F2937B87300CF2F8B /* MapView.swift in Sources */,
 				DCD4F3BA290D374900E18516 /* SceneDelegate.swift in Sources */,
 				DCD4F3D7290E7FCB00E18516 /* CornerRadius.swift in Sources */,

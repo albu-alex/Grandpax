@@ -52,7 +52,7 @@ class MapViewModel: ObservableObject {
 
         do {
             let imageSnapshot = try await snapshotter.start()
-            let image = imageSnapshot.image
+            let image = UIImage.drawRectangleOnImage(imageSnapshot.image)
             let imageData = image.jpegData(compressionQuality: 0.8)?.base64EncodedString()
             return imageData
         } catch {
