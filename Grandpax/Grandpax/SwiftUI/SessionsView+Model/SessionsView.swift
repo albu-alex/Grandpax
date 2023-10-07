@@ -6,12 +6,7 @@
 //
 
 import SwiftUI
-import Charts
 import RealmSwift
-
-fileprivate class MySession {
-    var mapSnapshot: String = ""
-}
 
 struct SessionsView: View {
     
@@ -21,45 +16,96 @@ struct SessionsView: View {
     
     // MARK: - States
     
-    @State private var isActivityControllerPresented = false
-    @State private var mapSnapshot = "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII="
+    @State private var deleteActionState: DeleteActionState = .untouched
     @StateObject var viewModel = SessionsViewModel()
-    
-    // MARK: - Properties
-    
-    private var headerText: Text {
-        let sessionsCount = viewModel.sessions.count
-        let timesString = sessionsCount == 1 ? "time" : "times"
-        return Text("You have raced \(sessionsCount) \(timesString)")
-            .bold()
-    }
     
     // MARK: - Lifecycle
     
     var body: some View {
         ZStack(alignment: .top) {
-            HStack {
-                Text("Statistics")
-                    .bold()
-                    .font(.system(size: 22))
-                Spacer()
-                ActionButton(image: Image(systemName: "xmark")) {
-                    presentationMode.wrappedValue.dismiss()
-                    viewModel.hardRemoveSessions()
+            HeaderView {
+                presentationMode.wrappedValue.dismiss()
+                viewModel.hardRemoveSessions()
+            }
+            .gesture(
+                dragGestureHandler()
+            )
+            Color(Theme.background)
+            MainContentView(viewModel: viewModel) {
+                deleteActionState = .triggered
+            }
+        }
+    }
+    
+    // MARK: - Methods
+    
+    private func dragGestureHandler() -> some Gesture {
+        return DragGesture()
+            .onEnded { value in
+                if value.translation.height > 100 {
+                    switch deleteActionState {
+                    case .triggered:
+                        ToastService.shared.showToast(
+                            message: "Sessions will only be deleted if you press on the 'X' button from the view's header",
+                            type: .info
+                        )
+                        deleteActionState = .acknowledged
+                        break
+                    case .acknowledged:
+                        presentationMode.wrappedValue.dismiss()
+                        break
+                    default:
+                        break
+                    }
                 }
             }
-            .padding(.horizontal, 16)
-            .frame(maxHeight: 60)
-            .background(Color(Colors.white).opacity(0.5))
-            .shadow(color: Color(Colors.shadow), radius: 40, y: 25)
-            .zIndex(2)
-            Color(Theme.background)
-            VStack(alignment: .leading) {
-                HStack {
-                    headerText
-                }
-                .padding(.top, 80)
-                .padding(.horizontal, 24)
+    }
+}
+
+fileprivate struct HeaderView: View {
+    
+    // MARK: - Closure
+    
+    var dissmissViewAction: () -> Void
+    
+    // MARK: - Body
+    
+    var body: some View {
+        HStack {
+            Text("Sessions")
+                .bold()
+                .font(.system(size: 22))
+            Spacer()
+            ActionButton(image: Image(systemName: "xmark")) {
+                dissmissViewAction()
+            }
+        }
+        .padding(.horizontal, 16)
+        .frame(maxHeight: 60)
+        .background(Color(Colors.white).opacity(0.5))
+        .shadow(color: Color(Colors.shadow), radius: 40, y: 25)
+        .zIndex(2)
+    }
+}
+
+fileprivate struct MainContentView: View {
+    
+    // MARK: - State
+    
+    @State private var isActivityControllerPresented = false
+    @State private var isDeleteAlertPresented = false
+    @State private var mapSnapshot = ""
+    @StateObject var viewModel: SessionsViewModel
+    
+    // MARK: - Closure
+    
+    var onDeleteActionStateChanged: () -> Void
+    
+    var body: some View {
+        Color(Theme.background)
+        
+        VStack(alignment: .leading) {
+            NavigationView {
                 NavigationView {
                     List(viewModel.sessions) { session in
                         NavigationLink {
@@ -74,7 +120,7 @@ struct SessionsView: View {
                         .listRowSeparatorTint(Color(Theme.textColor))
                         .swipeActions {
                             Button(action: {
-                                viewModel.softRemoveSession(session)
+                                isDeleteAlertPresented = true
                             }, label: {
                                 Image(systemName: "trash")
                             })
@@ -86,115 +132,31 @@ struct SessionsView: View {
                             })
                             .tint(.blue)
                         }
+                        .alert(isPresented: $isDeleteAlertPresented) {
+                            Alert(
+                                title: Text("Confirm Deletion"),
+                                message: Text("Are you sure you want to delete this session?"),
+                                primaryButton: .destructive(Text("Delete")) {
+                                    viewModel.softRemoveSession(session)
+                                    onDeleteActionStateChanged()
+                                },
+                                secondaryButton: .cancel()
+                            )
+                        }
                     }
                     .background(Color(Theme.background))
                     .scrollContentBackground(.hidden)
                 }
-                .toolbar(.hidden)
-                .onChange(of: mapSnapshot) { _ in
-                    isActivityControllerPresented = true
-                }
-                .sheet(isPresented: $isActivityControllerPresented) {
-                     viewModel.presentActivityViewControllerWithSnapshot(mapSnapshot)
-                }
+            }
+            .toolbar(.hidden)
+            .onChange(of: mapSnapshot) { _ in
+                isActivityControllerPresented = true
+            }
+            .sheet(isPresented: $isActivityControllerPresented) {
+                viewModel.presentActivityViewControllerWithSnapshot(mapSnapshot)
             }
         }
-    }
-}
-
-fileprivate struct SessionDetailsView: View {
-    
-    // MARK: - Environment
-    
-    @Environment(\.presentationMode) private var presentationMode
-    
-    // MARK: - Properties
-    
-    private let SPEED_UNIT = UserDefaultsManager.Settings.isImperialUnitsSelected ? "mph" : "km/h"
-   
-    private let previousSessions: [Session]
-    private let session: Session
-    private let selectedSessionIndex: Int
-    private let sessionMetrics: [String]
-    
-    // MARK: - Lifecycle
-    
-    init(previousSessions: [Session], session: Session) {
-        self.previousSessions = previousSessions
-        self.session = session
-        
-        selectedSessionIndex = previousSessions.firstIndex(of: session) ?? 0
-        sessionMetrics = ["Speed", "G-Force"]
-    }
-    
-    var body: some View {
-        ZStack {
-            Color(Theme.background)
-            ScrollView {
-                HStack {
-                    ActionButton(image: Image(systemName: "arrow.left")) {
-                        presentationMode.wrappedValue.dismiss()
-                    }
-                    Spacer()
-                }
-                VStack {
-                    ForEach(sessionMetrics, id: \.self) { metric in
-                        categoryView(description: metric, values: categoryValues(metric))
-                    }
-                }
-                .padding(.bottom, 25)
-            }
-        }
-        .ignoresSafeArea()
-    }
-    
-    // MARK: - Properties
-    
-    private func categoryValues(_ category: String) -> [Double] {
-        category == "Speed" ?
-            previousSessions.map { $0.maxSpeed.convertFromMs() } :
-            previousSessions.map { $0.maxGForce }
-    }
-    
-    private func categoryView(description: String, values: [Double]) -> some View {
-        return ZStack {
-            VStack {
-                Text(description)
-                    .foregroundColor(.white)
-                    .padding()
-                barChartView(values: values)
-            }
-            .padding(.vertical, 40)
-            .padding(.horizontal, 20)
-        }
-        .background(.ultraThinMaterial.opacity(0.5))
-        .cornerRadius(24)
-    }
-    
-    private func barChartView(values: [Double]) -> some View {
-        let selectedBarColor = Color(Theme.accentBackground)
-        let barColor = Color(Theme.accentColor)
-        
-        let selectedValue = values[selectedSessionIndex]
-        let lowerValues = values.filter { $0 < selectedValue }.count
-        
-        return VStack(alignment: .leading, spacing: 10) {
-            Text("Higher stat compared to \(lowerValues) sessions!")
-                .font(.caption)
-            
-            Chart(values, id: \.self) { value in
-                BarMark(
-                    x: .value("\(values.firstIndex(of: value)!)", values.firstIndex(of: value)!),
-                    y: .value("\(value)", value)
-                )
-                .foregroundStyle(selectedSessionIndex == values.firstIndex(of: value)! ? selectedBarColor : barColor)
-                .cornerRadius(4)
-            }
-            .chartYAxis {
-                AxisMarks(position: .leading)
-            }
-            .frame(width: 300, height: 200)
-        }
+        .padding(.top, 80)
     }
 }
 

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		49CE4F5A36060111354ACD22 /* Pods_GrandpaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216C227D72F04801A198DD46 /* Pods_GrandpaxTests.framework */; };
 		B92AC7FA8858A6EABAD633A7 /* Pods_Grandpax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F5FDA6B92C348136E119C7 /* Pods_Grandpax.framework */; };
+		D58D9C132AD1B46D002B4053 /* SessionItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C122AD1B46C002B4053 /* SessionItemSource.swift */; };
+		D58D9C162AD1B9E1002B4053 /* SessionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C152AD1B9E1002B4053 /* SessionDetailsView.swift */; };
+		D58D9C182AD20335002B4053 /* DeleteActionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C172AD20335002B4053 /* DeleteActionState.swift */; };
 		DC09C7AA2A3F2362009BE60A /* SessionsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7A92A3F2362009BE60A /* SessionsViewModelTests.swift */; };
 		DC09C7B12A3F2D15009BE60A /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7B02A3F2D15009BE60A /* SettingsViewModelTests.swift */; };
 		DC09C7B32A3F3056009BE60A /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7B22A3F3056009BE60A /* MapViewModelTests.swift */; };
@@ -64,6 +67,9 @@
 		73F5FDA6B92C348136E119C7 /* Pods_Grandpax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grandpax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB4E8ABA128F87BB444B4C8B /* Pods-Grandpax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.release.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.release.xcconfig"; sourceTree = "<group>"; };
 		C23DEA3B79F429CAA3C3DAA5 /* Pods-Grandpax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.debug.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.debug.xcconfig"; sourceTree = "<group>"; };
+		D58D9C122AD1B46C002B4053 /* SessionItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionItemSource.swift; sourceTree = "<group>"; };
+		D58D9C152AD1B9E1002B4053 /* SessionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailsView.swift; sourceTree = "<group>"; };
+		D58D9C172AD20335002B4053 /* DeleteActionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteActionState.swift; sourceTree = "<group>"; };
 		DC09C7A72A3F2362009BE60A /* GrandpaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrandpaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC09C7A92A3F2362009BE60A /* SessionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewModelTests.swift; sourceTree = "<group>"; };
 		DC09C7B02A3F2D15009BE60A /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
@@ -147,6 +153,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D58D9C142AD1B999002B4053 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D58D9C152AD1B9E1002B4053 /* SessionDetailsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		DC09C7A82A3F2362009BE60A /* GrandpaxTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +184,7 @@
 			children = (
 				DCD4F3CF290D63AD00E18516 /* Colors.swift */,
 				DCD4F3D1290D6F9D00E18516 /* CommonStrings.swift */,
+				D58D9C122AD1B46C002B4053 /* SessionItemSource.swift */,
 				DCD4F3D6290E7FCB00E18516 /* CornerRadius.swift */,
 				DC1B12442922286B00AF9A18 /* Alerts.swift */,
 				DCA65CC229391BCE00B2C7B7 /* UserDefaultsManager.swift */,
@@ -185,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				DC18837729B92F60001FD2DD /* Session.swift */,
+				D58D9C172AD20335002B4053 /* DeleteActionState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -210,6 +226,7 @@
 		DCB6E8EF298323A9006BAF76 /* SessionsView+Model */ = {
 			isa = PBXGroup;
 			children = (
+				D58D9C142AD1B999002B4053 /* Views */,
 				DCB6E8F029832439006BAF76 /* SessionsView.swift */,
 				DCDFC8B929C2596D00C61DA5 /* SessionsViewModel.swift */,
 			);
@@ -505,6 +522,7 @@
 			files = (
 				DCD4F3D5290E711300E18516 /* UIView+Extensions.swift in Sources */,
 				DC80CD44292AA71700DAB655 /* CLLocationCoordinate2D+Extensions.swift in Sources */,
+				D58D9C182AD20335002B4053 /* DeleteActionState.swift in Sources */,
 				DCD4F3BC290D374900E18516 /* MainViewController.swift in Sources */,
 				DCD2C6EC29573267006FFF73 /* Theme.swift in Sources */,
 				DC1B12452922286B00AF9A18 /* Alerts.swift in Sources */,
@@ -524,7 +542,9 @@
 				DC133DB4291709C0000B5046 /* StatisticsView.swift in Sources */,
 				DCD4F3D0290D63AD00E18516 /* Colors.swift in Sources */,
 				DCD4F3B8290D374900E18516 /* AppDelegate.swift in Sources */,
+				D58D9C162AD1B9E1002B4053 /* SessionDetailsView.swift in Sources */,
 				DCC78C812937B8A200CF2F8B /* MapViewModel.swift in Sources */,
+				D58D9C132AD1B46D002B4053 /* SessionItemSource.swift in Sources */,
 				DC489F2C291B8EFE005B401A /* Double+Extensions.swift in Sources */,
 				DCEE27BA291663A400F6BDD4 /* MKMapView+Extensions.swift in Sources */,
 				DCFA20A92A92B9B4001E0A27 /* UIImage+Extensions.swift in Sources */,
