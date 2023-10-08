@@ -8,20 +8,25 @@
 import UIKit
 
 extension UIImage {
-    class func drawRectangleOnImage(_ image: UIImage) -> UIImage {
+    class func drawPointsOnImage(_ image: UIImage, points: [CGPoint]) -> UIImage {
         let imageSize = image.size
         let scale: CGFloat = 0
+        
         UIGraphicsBeginImageContextWithOptions(imageSize, false, scale)
 
         image.draw(at: CGPoint.zero)
-
-        let rectangle = CGRect(x: 0, y: (imageSize.height/2) - 30, width: imageSize.width, height: 60)
-
-        UIColor.red.setFill()
-        UIRectFill(rectangle)
+        
+        for point in points {
+            let pointRect = CGRect(x: point.x - 1.0, y: point.y - 1.0, width: 2.0, height: 2.0)
+            Theme.tintColor.setFill()
+            
+            UIRectFill(pointRect)
+        }
 
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        
         return newImage ?? UIImage()
     }
+
 }

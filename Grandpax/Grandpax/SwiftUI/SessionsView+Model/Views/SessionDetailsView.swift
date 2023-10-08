@@ -33,6 +33,8 @@ struct SessionDetailsView: View {
         sessionMetrics = ["Speed", "G-Force"]
     }
     
+    // MARK: - Body
+    
     var body: some View {
         ZStack {
             Color(Theme.background)
@@ -45,7 +47,7 @@ struct SessionDetailsView: View {
                 }
                 VStack {
                     ForEach(sessionMetrics, id: \.self) { metric in
-                        categoryView(description: metric, values: categoryValues(metric))
+                        CategoryView(description: metric, values: categoryValues(metric), selectedSessionIndex: selectedSessionIndex)
                     }
                 }
                 .padding(.bottom, 25)
@@ -54,21 +56,34 @@ struct SessionDetailsView: View {
         .ignoresSafeArea()
     }
     
-    // MARK: - Properties
+    // MARK: - Methods
     
     private func categoryValues(_ category: String) -> [Double] {
         category == "Speed" ?
             previousSessions.map { $0.maxSpeed.convertFromMs() } :
             previousSessions.map { $0.maxGForce }
     }
+}
+
+// MARK: - Helper Views
+
+fileprivate struct CategoryView: View {
     
-    private func categoryView(description: String, values: [Double]) -> some View {
-        return ZStack {
+    // MARK: - Properties
+    
+    let description: String
+    let values: [Double]
+    let selectedSessionIndex: Int
+    
+    // MARK: - Body
+    
+    var body: some View {
+        ZStack {
             VStack {
                 Text(description)
                     .foregroundColor(.white)
                     .padding()
-                barChartView(values: values)
+                BarChartView(values: values, selectedSessionIndex: selectedSessionIndex)
             }
             .padding(.vertical, 40)
             .padding(.horizontal, 20)
@@ -76,15 +91,36 @@ struct SessionDetailsView: View {
         .background(.ultraThinMaterial.opacity(0.5))
         .cornerRadius(24)
     }
+}
+
+fileprivate struct BarChartView: View {
     
-    private func barChartView(values: [Double]) -> some View {
-        let selectedBarColor = Color(Theme.accentBackground)
-        let barColor = Color(Theme.accentColor)
+    // MARK: - Properties
+    
+    private let values: [Double]
+    private let selectedSessionIndex: Int
+    
+    private var selectedBarColor: Color
+    private var barColor: Color
+    private var selectedValue: Double
+    private var lowerValues = 0
+    
+    // MARK: - Lifecycle
+    
+    init(values: [Double], selectedSessionIndex: Int) {
+        self.values = values
+        self.selectedSessionIndex = selectedSessionIndex
         
-        let selectedValue = values[selectedSessionIndex]
-        let lowerValues = values.filter { $0 < selectedValue }.count
-        
-        return VStack(alignment: .leading, spacing: 10) {
+        selectedBarColor = Color(Theme.accentBackground)
+        barColor = Color(Theme.accentColor)
+        selectedValue = values[selectedSessionIndex]
+        lowerValues = values.filter { $0 < selectedValue }.count
+    }
+    
+    // MARK: - Body
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
             Text("Higher stat compared to \(lowerValues) sessions!")
                 .font(.caption)
             

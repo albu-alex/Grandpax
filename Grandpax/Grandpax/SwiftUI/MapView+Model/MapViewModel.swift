@@ -10,10 +10,6 @@ import MapKit
 
 class MapViewModel: ObservableObject {
     
-    // MARK: - Published
-
-    @Published var locations = [CLLocationCoordinate2D]()
-    
     // MARK: - Properties
     
     private var userTrackingMode: MKUserTrackingMode = UserDefaultsManager.Settings.isFollowingCurrentLocation ? .follow : .none {
@@ -23,7 +19,10 @@ class MapViewModel: ObservableObject {
         }
     }
     private var mapView: MKMapView?
+    private var locations = [CLLocationCoordinate2D]()
+    
     private let options = MKMapSnapshotter.Options()
+    private let DEFAULT_REGION_SPAN = 0.5
     
     // MARK: - Lifecycle
     
@@ -34,6 +33,7 @@ class MapViewModel: ObservableObject {
     // MARK: - Methods
 
     func drawLine(_ coordinates: [CLLocationCoordinate2D]) {
+        locations = coordinates
         mapView?.setUserTrackingMode(userTrackingMode, animated: true)
         let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
         if let overlay = mapView?.overlays.first {
@@ -52,7 +52,8 @@ class MapViewModel: ObservableObject {
 
         do {
             let imageSnapshot = try await snapshotter.start()
-            let image = UIImage.drawRectangleOnImage(imageSnapshot.image)
+            let pointsOnImage = locations.map { imageSnapshot.point(for: $0) }
+            let image = UIImage.drawPointsOnImage(imageSnapshot.image, points: pointsOnImage)
             let imageData = image.jpegData(compressionQuality: 0.8)?.base64EncodedString()
             return imageData
         } catch {
@@ -68,8 +69,9 @@ class MapViewModel: ObservableObject {
     private func setupSnapshotter() {
         options.region = mapView?.region ?? MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: 52.239647, longitude: 21.045845),
-            span: MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
+            span: MKCoordinateSpan(latitudeDelta: DEFAULT_REGION_SPAN, longitudeDelta: DEFAULT_REGION_SPAN)
         )
+        options.region.span = MKCoordinateSpan(latitudeDelta: DEFAULT_REGION_SPAN, longitudeDelta: DEFAULT_REGION_SPAN)
         options.mapType = .mutedStandard
         options.showsBuildings = true
     }

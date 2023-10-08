@@ -86,7 +86,7 @@ struct StatisticsView: View {
     }
 }
 
-// MARK: - Extensions
+// MARK: - Previews
 
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {
