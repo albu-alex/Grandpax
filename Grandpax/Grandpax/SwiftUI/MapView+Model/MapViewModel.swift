@@ -10,10 +10,6 @@ import MapKit
 
 class MapViewModel: ObservableObject {
     
-    // MARK: - Published
-
-    @Published var locations = [CLLocationCoordinate2D]()
-    
     // MARK: - Properties
     
     private var userTrackingMode: MKUserTrackingMode = UserDefaultsManager.Settings.isFollowingCurrentLocation ? .follow : .none {
@@ -23,6 +19,10 @@ class MapViewModel: ObservableObject {
         }
     }
     private var mapView: MKMapView?
+    private var locations = [CLLocationCoordinate2D]()
+    
+    private let options = MKMapSnapshotter.Options()
+    private let DEFAULT_REGION_SPAN = 0.5
     
     // MARK: - Lifecycle
     
@@ -33,6 +33,7 @@ class MapViewModel: ObservableObject {
     // MARK: - Methods
 
     func drawLine(_ coordinates: [CLLocationCoordinate2D]) {
+        locations = coordinates
         mapView?.setUserTrackingMode(userTrackingMode, animated: true)
         let polyline = MKPolyline(coordinates: coordinates, count: coordinates.count)
         if let overlay = mapView?.overlays.first {
@@ -45,8 +46,34 @@ class MapViewModel: ObservableObject {
         self.mapView = mapView
     }
     
+    func createSnapshot() async -> String? {
+        setupSnapshotter()
+        let snapshotter = MKMapSnapshotter(options: options)
+
+        do {
+            let imageSnapshot = try await snapshotter.start()
+            let pointsOnImage = locations.map { imageSnapshot.point(for: $0) }
+            let image = UIImage.drawPointsOnImage(imageSnapshot.image, points: pointsOnImage)
+            let imageData = image.jpegData(compressionQuality: 0.8)?.base64EncodedString()
+            return imageData
+        } catch {
+            print("Something went wrong: \(error.localizedDescription)")
+            return nil
+        }
+    }
+    
     private func setupObservers() {
         NotificationCenter.default.addObserver(self, selector: #selector(locationCenteringDidChange(_:)), name: Notification.Name("LocationCenteringDidChange"), object: nil)
+    }
+    
+    private func setupSnapshotter() {
+        options.region = mapView?.region ?? MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 52.239647, longitude: 21.045845),
+            span: MKCoordinateSpan(latitudeDelta: DEFAULT_REGION_SPAN, longitudeDelta: DEFAULT_REGION_SPAN)
+        )
+        options.region.span = MKCoordinateSpan(latitudeDelta: DEFAULT_REGION_SPAN, longitudeDelta: DEFAULT_REGION_SPAN)
+        options.mapType = .mutedStandard
+        options.showsBuildings = true
     }
     
     @objc

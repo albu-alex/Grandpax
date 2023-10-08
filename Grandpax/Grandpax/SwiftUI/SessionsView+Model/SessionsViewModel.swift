@@ -35,10 +35,22 @@ class SessionsViewModel: ObservableObject {
         }
     }
     
+    func presentActivityViewControllerWithSnapshot(_ snapshot: String?) -> ActivityViewController {
+        if let snapshot {
+            let imageData = Data(base64Encoded: snapshot) ?? Data()
+            let items: [AnyObject] = [
+                SessionItemSource(item: UIImage(data: imageData) ?? UIImage())
+            ]
+            return ActivityViewController(activityItems: items)
+        }
+        
+        return ActivityViewController(activityItems: [])
+    }
+    
     func softRemoveSession(_ session: Session) {
         if let sessionIndex = sessions.firstIndex(of: session) {
             sessions.remove(at: sessionIndex)
-            ToastService.shared.showToast(message: "Session removed successfully!", type: .success)
+            ToastService.shared.showToast(message: "Session marked for deletion. Press 'X' to confirm", type: .success)
         } else {
             ToastService.shared.showToast(message: "There was an error removing the session", type: .error)
         }
