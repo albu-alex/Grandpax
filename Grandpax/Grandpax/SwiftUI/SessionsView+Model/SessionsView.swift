@@ -95,6 +95,7 @@ fileprivate struct MainContentView: View {
     @State private var isActivityControllerPresented = false
     @State private var isDeleteAlertPresented = false
     @State private var mapSnapshot = ""
+    @State private var sessionToBeDeleted = Session()
     @StateObject var viewModel: SessionsViewModel
     
     // MARK: - Closure
@@ -120,6 +121,7 @@ fileprivate struct MainContentView: View {
                         .listRowSeparatorTint(Color(Theme.textColor))
                         .swipeActions {
                             Button(action: {
+                                sessionToBeDeleted = session
                                 isDeleteAlertPresented = true
                             }, label: {
                                 Image(systemName: "trash")
@@ -132,20 +134,12 @@ fileprivate struct MainContentView: View {
                             })
                             .tint(.blue)
                         }
-                        .alert(isPresented: $isDeleteAlertPresented) {
-                            Alert(
-                                title: Text("Confirm Deletion"),
-                                message: Text("Are you sure you want to delete this session?"),
-                                primaryButton: .destructive(Text("Delete")) {
-                                    viewModel.softRemoveSession(session)
-                                    onDeleteActionStateChanged()
-                                },
-                                secondaryButton: .cancel()
-                            )
-                        }
                     }
                     .background(Color(Theme.background))
                     .scrollContentBackground(.hidden)
+                    .alert(isPresented: $isDeleteAlertPresented) {
+                        deletionConfirmationAlert(for: sessionToBeDeleted)
+                    }
                 }
             }
             .toolbar(.hidden)
@@ -157,6 +151,20 @@ fileprivate struct MainContentView: View {
             }
         }
         .padding(.top, 80)
+    }
+    
+    // MARK: - Methods
+    
+    private func deletionConfirmationAlert(for session: Session) -> Alert {
+        Alert(
+            title: Text("Confirm Deletion"),
+            message: Text("Are you sure you want to delete this session?"),
+            primaryButton: .destructive(Text("Delete")) {
+                viewModel.softRemoveSession(session)
+                onDeleteActionStateChanged()
+            },
+            secondaryButton: .cancel()
+        )
     }
 }
 

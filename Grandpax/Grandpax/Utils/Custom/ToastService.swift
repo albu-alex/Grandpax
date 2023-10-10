@@ -22,18 +22,18 @@ struct ToastService {
             window.addSubview(toastLabel)
 
             NSLayoutConstraint.activate([
-                toastLabel.topAnchor.constraint(equalTo: window.topAnchor, constant: 144),
+                toastLabel.topAnchor.constraint(equalTo: window.topAnchor, constant: 100),
                 toastLabel.leadingAnchor.constraint(equalTo: window.leadingAnchor, constant: 24),
                 toastLabel.trailingAnchor.constraint(equalTo: window.trailingAnchor, constant: -24),
                 toastLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 48)
             ])
 
             UIView.animate(withDuration: duration, delay: 0.0, options: .curveEaseInOut, animations: {
-                toastLabel.frame.origin.y = 288
+                toastLabel.frame.origin.y = 200
                 toastLabel.alpha = 1.0
             }, completion: { _ in
                 UIView.animate(withDuration: duration, delay: duration, options: .curveEaseInOut, animations: {
-                    toastLabel.frame.origin.y = -144
+                    toastLabel.frame.origin.y = -100
                     toastLabel.alpha = 0.0
                 }, completion: { _ in
                     toastLabel.removeFromSuperview()
