@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49CE4F5A36060111354ACD22 /* Pods_GrandpaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 216C227D72F04801A198DD46 /* Pods_GrandpaxTests.framework */; };
-		B92AC7FA8858A6EABAD633A7 /* Pods_Grandpax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73F5FDA6B92C348136E119C7 /* Pods_Grandpax.framework */; };
+		11443F06347D3A62ACDBAC4C /* Pods_Grandpax.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8C986F3A1E9219416C77562 /* Pods_Grandpax.framework */; };
+		58983FECC8BF5F4CE8D9A954 /* Pods_GrandpaxTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9CCA1AD2235CB885B69C467 /* Pods_GrandpaxTests.framework */; };
 		D58D9C132AD1B46D002B4053 /* SessionItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C122AD1B46C002B4053 /* SessionItemSource.swift */; };
 		D58D9C162AD1B9E1002B4053 /* SessionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C152AD1B9E1002B4053 /* SessionDetailsView.swift */; };
 		D58D9C182AD20335002B4053 /* DeleteActionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C172AD20335002B4053 /* DeleteActionState.swift */; };
@@ -62,11 +62,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		216C227D72F04801A198DD46 /* Pods_GrandpaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandpaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3EF43FA6CC49B64BA6FB4EE2 /* Pods-GrandpaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandpaxTests.release.xcconfig"; path = "Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests.release.xcconfig"; sourceTree = "<group>"; };
-		73F5FDA6B92C348136E119C7 /* Pods_Grandpax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grandpax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB4E8ABA128F87BB444B4C8B /* Pods-Grandpax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.release.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.release.xcconfig"; sourceTree = "<group>"; };
-		C23DEA3B79F429CAA3C3DAA5 /* Pods-Grandpax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.debug.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.debug.xcconfig"; sourceTree = "<group>"; };
+		1D04BE5E130B88EBD4305FCA /* Pods-GrandpaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandpaxTests.debug.xcconfig"; path = "Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		31BF781100351ED376FC03D2 /* Pods-Grandpax.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.release.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.release.xcconfig"; sourceTree = "<group>"; };
+		A8C986F3A1E9219416C77562 /* Pods_Grandpax.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Grandpax.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4B2466331F35A0D68A83DE6 /* Pods-Grandpax.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Grandpax.debug.xcconfig"; path = "Target Support Files/Pods-Grandpax/Pods-Grandpax.debug.xcconfig"; sourceTree = "<group>"; };
 		D58D9C122AD1B46C002B4053 /* SessionItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionItemSource.swift; sourceTree = "<group>"; };
 		D58D9C152AD1B9E1002B4053 /* SessionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailsView.swift; sourceTree = "<group>"; };
 		D58D9C172AD20335002B4053 /* DeleteActionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteActionState.swift; sourceTree = "<group>"; };
@@ -110,7 +109,8 @@
 		DCEE27BF29166D2600F6BDD4 /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
 		DCEE27C129167A0200F6BDD4 /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		DCFA20A82A92B9B4001E0A27 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
-		FE051D0CC7D356A48D096134 /* Pods-GrandpaxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandpaxTests.debug.xcconfig"; path = "Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F9CCA1AD2235CB885B69C467 /* Pods_GrandpaxTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GrandpaxTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE329CFD67EC8E858F2D5F81 /* Pods-GrandpaxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GrandpaxTests.release.xcconfig"; path = "Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CE4F5A36060111354ACD22 /* Pods_GrandpaxTests.framework in Frameworks */,
+				58983FECC8BF5F4CE8D9A954 /* Pods_GrandpaxTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B92AC7FA8858A6EABAD633A7 /* Pods_Grandpax.framework in Frameworks */,
+				11443F06347D3A62ACDBAC4C /* Pods_Grandpax.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,19 +136,19 @@
 		3B1E317C7F35FEF53E5B58BF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C23DEA3B79F429CAA3C3DAA5 /* Pods-Grandpax.debug.xcconfig */,
-				BB4E8ABA128F87BB444B4C8B /* Pods-Grandpax.release.xcconfig */,
-				FE051D0CC7D356A48D096134 /* Pods-GrandpaxTests.debug.xcconfig */,
-				3EF43FA6CC49B64BA6FB4EE2 /* Pods-GrandpaxTests.release.xcconfig */,
+				C4B2466331F35A0D68A83DE6 /* Pods-Grandpax.debug.xcconfig */,
+				31BF781100351ED376FC03D2 /* Pods-Grandpax.release.xcconfig */,
+				1D04BE5E130B88EBD4305FCA /* Pods-GrandpaxTests.debug.xcconfig */,
+				FE329CFD67EC8E858F2D5F81 /* Pods-GrandpaxTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		4C0EBFDB4E2314F913C3E0D3 /* Frameworks */ = {
+		62B954A784CF26367E35CD41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				73F5FDA6B92C348136E119C7 /* Pods_Grandpax.framework */,
-				216C227D72F04801A198DD46 /* Pods_GrandpaxTests.framework */,
+				A8C986F3A1E9219416C77562 /* Pods_Grandpax.framework */,
+				F9CCA1AD2235CB885B69C467 /* Pods_GrandpaxTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 				DC09C7A82A3F2362009BE60A /* GrandpaxTests */,
 				DCD4F3B5290D374900E18516 /* Products */,
 				3B1E317C7F35FEF53E5B58BF /* Pods */,
-				4C0EBFDB4E2314F913C3E0D3 /* Frameworks */,
+				62B954A784CF26367E35CD41 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -331,11 +331,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC09C7AF2A3F2363009BE60A /* Build configuration list for PBXNativeTarget "GrandpaxTests" */;
 			buildPhases = (
-				DA22E1771689E48B727732A3 /* [CP] Check Pods Manifest.lock */,
+				13186787326B85C177E2AF9D /* [CP] Check Pods Manifest.lock */,
 				DC09C7A32A3F2362009BE60A /* Sources */,
 				DC09C7A42A3F2362009BE60A /* Frameworks */,
 				DC09C7A52A3F2362009BE60A /* Resources */,
-				DF44A32E3D8C2C06E5600185 /* [CP] Embed Pods Frameworks */,
+				AAF37AFD29CCB26FB601C81C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -351,11 +351,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCD4F3CB290D374D00E18516 /* Build configuration list for PBXNativeTarget "Grandpax" */;
 			buildPhases = (
-				A8815585FCF22089717830B1 /* [CP] Check Pods Manifest.lock */,
+				F7A5544393201DAAB2E392EE /* [CP] Check Pods Manifest.lock */,
 				DCD4F3B0290D374900E18516 /* Sources */,
 				DCD4F3B1290D374900E18516 /* Frameworks */,
 				DCD4F3B2290D374900E18516 /* Resources */,
-				B6134EA64437BCEAFB16E21A /* [CP] Embed Pods Frameworks */,
+				E90093B42466D0BE9B710EAC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -425,46 +425,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A8815585FCF22089717830B1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Grandpax-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B6134EA64437BCEAFB16E21A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DA22E1771689E48B727732A3 /* [CP] Check Pods Manifest.lock */ = {
+		13186787326B85C177E2AF9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -486,7 +447,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF44A32E3D8C2C06E5600185 /* [CP] Embed Pods Frameworks */ = {
+		AAF37AFD29CCB26FB601C81C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -501,6 +462,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GrandpaxTests/Pods-GrandpaxTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E90093B42466D0BE9B710EAC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Grandpax/Pods-Grandpax-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7A5544393201DAAB2E392EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Grandpax-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -589,7 +589,7 @@
 /* Begin XCBuildConfiguration section */
 		DC09C7AD2A3F2363009BE60A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE051D0CC7D356A48D096134 /* Pods-GrandpaxTests.debug.xcconfig */;
+			baseConfigurationReference = 1D04BE5E130B88EBD4305FCA /* Pods-GrandpaxTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -609,7 +609,7 @@
 		};
 		DC09C7AE2A3F2363009BE60A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EF43FA6CC49B64BA6FB4EE2 /* Pods-GrandpaxTests.release.xcconfig */;
+			baseConfigurationReference = FE329CFD67EC8E858F2D5F81 /* Pods-GrandpaxTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -743,7 +743,7 @@
 		};
 		DCD4F3CC290D374D00E18516 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C23DEA3B79F429CAA3C3DAA5 /* Pods-Grandpax.debug.xcconfig */;
+			baseConfigurationReference = C4B2466331F35A0D68A83DE6 /* Pods-Grandpax.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -777,7 +777,7 @@
 		};
 		DCD4F3CD290D374D00E18516 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB4E8ABA128F87BB444B4C8B /* Pods-Grandpax.release.xcconfig */;
+			baseConfigurationReference = 31BF781100351ED376FC03D2 /* Pods-Grandpax.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

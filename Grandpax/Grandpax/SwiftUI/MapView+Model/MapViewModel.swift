@@ -67,13 +67,38 @@ class MapViewModel: ObservableObject {
     }
     
     private func setupSnapshotter() {
-        options.region = mapView?.region ?? MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 52.239647, longitude: 21.045845),
-            span: MKCoordinateSpan(latitudeDelta: DEFAULT_REGION_SPAN, longitudeDelta: DEFAULT_REGION_SPAN)
-        )
-        options.region.span = MKCoordinateSpan(latitudeDelta: DEFAULT_REGION_SPAN, longitudeDelta: DEFAULT_REGION_SPAN)
+        options.region = calculateRegionToFitOverlay(locations)
         options.mapType = .mutedStandard
         options.showsBuildings = true
+        options.size = .init(width: 450, height: 800)
+    }
+    
+    private func calculateRegionToFitOverlay(_ coordinates: [CLLocationCoordinate2D]) -> MKCoordinateRegion {
+        guard !coordinates.isEmpty else {
+            return MKCoordinateRegion(
+                center: CLLocationCoordinate2D(latitude: 52.239647, longitude: 21.045845),
+                span: MKCoordinateSpan(latitudeDelta: DEFAULT_REGION_SPAN, longitudeDelta: DEFAULT_REGION_SPAN)
+            )
+        }
+
+        let latitudes = coordinates.map { $0.latitude }
+        let longitudes = coordinates.map { $0.longitude }
+        let minLat = latitudes.min()!
+        let maxLat = latitudes.max()!
+        let minLong = longitudes.min()!
+        let maxLong = longitudes.max()!
+
+        let center = CLLocationCoordinate2D(
+            latitude: (minLat + maxLat) / 2.0,
+            longitude: (minLong + maxLong) / 2.0
+        )
+
+        let span = MKCoordinateSpan(
+            latitudeDelta: maxLat - minLat + 0.01,
+            longitudeDelta: maxLong - minLong + 0.01
+        )
+
+        return MKCoordinateRegion(center: center, span: span)
     }
     
     @objc

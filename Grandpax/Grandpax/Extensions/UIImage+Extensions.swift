@@ -11,22 +11,25 @@ extension UIImage {
     class func drawPointsOnImage(_ image: UIImage, points: [CGPoint]) -> UIImage {
         let imageSize = image.size
         let scale: CGFloat = 0
-        
+
         UIGraphicsBeginImageContextWithOptions(imageSize, false, scale)
 
         image.draw(at: CGPoint.zero)
-        
-        for point in points {
-            let pointRect = CGRect(x: point.x - 1.0, y: point.y - 1.0, width: 2.0, height: 2.0)
-            Theme.tintColor.setFill()
-            
-            UIRectFill(pointRect)
-        }
+        let path = UIBezierPath()
+        path.lineWidth = 2.0
+        Theme.tintColor.setStroke()
 
+        for (index, point) in points.enumerated() {
+            if index == 0 {
+                path.move(to: point)
+            } else {
+                path.addLine(to: point)
+            }
+        }
+        path.stroke()
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
         
+        UIGraphicsEndImageContext()
         return newImage ?? UIImage()
     }
-
 }
