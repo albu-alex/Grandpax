@@ -8,5 +8,5 @@
 import Foundation
 
 struct CommonStrings {
-    static var appName: String { "Grandpax" }
+    static var appName: String { "FastPals" }
 }

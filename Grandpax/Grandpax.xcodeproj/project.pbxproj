@@ -753,6 +753,7 @@
 				DEVELOPMENT_TEAM = AG8L3BUBFE;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Grandpax/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FastPals;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use Face ID in order to allow the user to protect the telemetry data registered.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use this in order to track your telemetry.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use this in order to track your telemetry.";
@@ -787,6 +788,7 @@
 				DEVELOPMENT_TEAM = AG8L3BUBFE;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Grandpax/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = FastPals;
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "We use Face ID in order to allow the user to protect the telemetry data registered.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We use this in order to track your telemetry.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use this in order to track your telemetry.";
