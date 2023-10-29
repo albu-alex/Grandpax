@@ -12,6 +12,7 @@
 		D58D9C132AD1B46D002B4053 /* SessionItemSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C122AD1B46C002B4053 /* SessionItemSource.swift */; };
 		D58D9C162AD1B9E1002B4053 /* SessionDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C152AD1B9E1002B4053 /* SessionDetailsView.swift */; };
 		D58D9C182AD20335002B4053 /* DeleteActionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58D9C172AD20335002B4053 /* DeleteActionState.swift */; };
+		D5E83BBD2AEE71A600421237 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E83BBC2AEE71A600421237 /* String+Extensions.swift */; };
 		DC09C7AA2A3F2362009BE60A /* SessionsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7A92A3F2362009BE60A /* SessionsViewModelTests.swift */; };
 		DC09C7B12A3F2D15009BE60A /* SettingsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7B02A3F2D15009BE60A /* SettingsViewModelTests.swift */; };
 		DC09C7B32A3F3056009BE60A /* MapViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC09C7B22A3F3056009BE60A /* MapViewModelTests.swift */; };
@@ -69,6 +70,7 @@
 		D58D9C122AD1B46C002B4053 /* SessionItemSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionItemSource.swift; sourceTree = "<group>"; };
 		D58D9C152AD1B9E1002B4053 /* SessionDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDetailsView.swift; sourceTree = "<group>"; };
 		D58D9C172AD20335002B4053 /* DeleteActionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteActionState.swift; sourceTree = "<group>"; };
+		D5E83BBC2AEE71A600421237 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DC09C7A72A3F2362009BE60A /* GrandpaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrandpaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC09C7A92A3F2362009BE60A /* SessionsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionsViewModelTests.swift; sourceTree = "<group>"; };
 		DC09C7B02A3F2D15009BE60A /* SettingsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTests.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				DC80CD43292AA71700DAB655 /* CLLocationCoordinate2D+Extensions.swift */,
 				DCDACE2529FF148800A8A049 /* UIApplication+Extensions.swift */,
 				DCFA20A82A92B9B4001E0A27 /* UIImage+Extensions.swift */,
+				D5E83BBC2AEE71A600421237 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -535,6 +538,7 @@
 				DCEE27C029166D2600F6BDD4 /* TrackView.swift in Sources */,
 				DC961CF729DCB10900E02154 /* BiometricsManager.swift in Sources */,
 				DCDCD2372A647CDD00391266 /* ActivityViewController.swift in Sources */,
+				D5E83BBD2AEE71A600421237 /* String+Extensions.swift in Sources */,
 				DCEE27C229167A0200F6BDD4 /* ActionButton.swift in Sources */,
 				DC18837829B92F60001FD2DD /* Session.swift in Sources */,
 				DC96DB56291AEFDA00688A91 /* CMAcceleration+Extensions.swift in Sources */,

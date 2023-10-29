@@ -110,7 +110,7 @@ fileprivate struct MainContentView: View {
                 NavigationView {
                     List(viewModel.sessions) { session in
                         NavigationLink {
-                            SessionDetailsView(previousSessions: viewModel.sessions, session: session)
+                            SessionDetailsView(otherSessions: viewModel.sessions, session: session)
                                 .navigationBarBackButtonHidden(true)
                         } label: {
                             Text(session.name)

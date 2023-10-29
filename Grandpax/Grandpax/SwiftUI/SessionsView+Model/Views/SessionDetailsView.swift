@@ -17,20 +17,16 @@ struct SessionDetailsView: View {
     // MARK: - Properties
     
     private let SPEED_UNIT = UserDefaultsManager.Settings.isImperialUnitsSelected ? "mph" : "km/h"
+    private let ACCELERATION_UNIT = "G"
    
-    private let previousSessions: [Session]
+    private let otherSessions: [Session]
     private let session: Session
-    private let selectedSessionIndex: Int
-    private let sessionMetrics: [String]
     
     // MARK: - Lifecycle
     
-    init(previousSessions: [Session], session: Session) {
-        self.previousSessions = previousSessions
+    init(otherSessions: [Session], session: Session) {
+        self.otherSessions = otherSessions
         self.session = session
-        
-        selectedSessionIndex = previousSessions.firstIndex(of: session) ?? 0
-        sessionMetrics = ["Speed", "G-Force"]
     }
     
     // MARK: - Body
@@ -38,19 +34,33 @@ struct SessionDetailsView: View {
     var body: some View {
         ZStack {
             Color(Theme.background)
-            ScrollView {
+            VStack {
                 HStack {
                     ActionButton(image: Image(systemName: "arrow.left")) {
                         presentationMode.wrappedValue.dismiss()
                     }
                     Spacer()
                 }
+                Spacer()
                 VStack {
-                    ForEach(sessionMetrics, id: \.self) { metric in
-                        CategoryView(description: metric, values: categoryValues(metric), selectedSessionIndex: selectedSessionIndex)
-                    }
+                    CategoryComparisonView(
+                        value: "\(String(session.maxSpeed).truncate(to: 6)) \(SPEED_UNIT)",
+                        icon: Image(systemName: "speedometer"),
+                        category: "Top Speed",
+                        weakerSessionsCount: sessionsWeakerForCategory(SessionCategoryEnum.speed)
+                    )
+                    categorySeparator()
+                    CategoryComparisonView(
+                        value: "\(String(session.maxGForce).truncate(to: 6)) \(ACCELERATION_UNIT)",
+                        icon: Image(systemName: "bolt.fill"),
+                        category: "Max G-Force",
+                        weakerSessionsCount: sessionsWeakerForCategory(SessionCategoryEnum.gForce)
+                    )
                 }
-                .padding(.bottom, 25)
+                .background(.ultraThinMaterial.opacity(0.5))
+                .cornerRadius(24)
+                .padding([.leading, .trailing, .bottom] ,48)
+                Spacer()
             }
         }
         .ignoresSafeArea()
@@ -58,84 +68,60 @@ struct SessionDetailsView: View {
     
     // MARK: - Methods
     
-    private func categoryValues(_ category: String) -> [Double] {
-        category == "Speed" ?
-            previousSessions.map { $0.maxSpeed.convertFromMs() } :
-            previousSessions.map { $0.maxGForce }
-    }
-}
-
-// MARK: - Helper Views
-
-fileprivate struct CategoryView: View {
-    
-    // MARK: - Properties
-    
-    let description: String
-    let values: [Double]
-    let selectedSessionIndex: Int
-    
-    // MARK: - Body
-    
-    var body: some View {
-        ZStack {
-            VStack {
-                Text(description)
-                    .foregroundColor(.white)
-                    .padding()
-                BarChartView(values: values, selectedSessionIndex: selectedSessionIndex)
-            }
-            .padding(.vertical, 40)
-            .padding(.horizontal, 20)
-        }
-        .background(.ultraThinMaterial.opacity(0.5))
-        .cornerRadius(24)
-    }
-}
-
-fileprivate struct BarChartView: View {
-    
-    // MARK: - Properties
-    
-    private let values: [Double]
-    private let selectedSessionIndex: Int
-    
-    private var selectedBarColor: Color
-    private var barColor: Color
-    private var selectedValue: Double
-    private var lowerValues = 0
-    
-    // MARK: - Lifecycle
-    
-    init(values: [Double], selectedSessionIndex: Int) {
-        self.values = values
-        self.selectedSessionIndex = selectedSessionIndex
+    private func sessionsWeakerForCategory(_ category: SessionCategoryEnum) -> Int {
+        let currentSessionValue = category == .speed ? session.maxSpeed : session.maxGForce
+        let otherSessionsValues = category == .speed ? otherSessions.map { $0.maxSpeed } : otherSessions.map { $0.maxGForce }
         
-        selectedBarColor = Color(Theme.accentBackground)
-        barColor = Color(Theme.accentColor)
-        selectedValue = values[selectedSessionIndex]
-        lowerValues = values.filter { $0 < selectedValue }.count
+        return otherSessionsValues.filter { $0 < currentSessionValue }.count
     }
     
-    // MARK: - Body
+    private func categorySeparator() -> some View {
+        return VStack {
+            Divider()
+        }
+        .padding(.vertical, 12)
+        .padding(.horizontal, 8)
+    }
+}
+
+// MARK: - Helpers
+
+fileprivate enum SessionCategoryEnum {
+    case speed
+    case gForce
+}
+
+fileprivate struct CategoryComparisonView: View {
+    private let value: String
+    private let icon: Image
+    private let category: String
+    private let weakerSessionsCount: Int
+    
+    init(value: String, icon: Image, category: String, weakerSessionsCount: Int) {
+        self.value = value
+        self.icon = icon
+        self.category = category
+        self.weakerSessionsCount = weakerSessionsCount
+    }
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Text("Higher stat compared to \(lowerValues) sessions!")
-                .font(.caption)
-            
-            Chart(values, id: \.self) { value in
-                BarMark(
-                    x: .value("\(values.firstIndex(of: value)!)", values.firstIndex(of: value)!),
-                    y: .value("\(value)", value)
-                )
-                .foregroundStyle(selectedSessionIndex == values.firstIndex(of: value)! ? selectedBarColor : barColor)
-                .cornerRadius(4)
+        VStack(spacing: 32) {
+            HStack(alignment: .center) {
+                Spacer()
+                VStack(spacing: 4) {
+                    icon
+                    Text(category)
+                        .bold()
+                }
+                Spacer()
+                Text(value)
+                Spacer()
             }
-            .chartYAxis {
-                AxisMarks(position: .leading)
+            VStack(spacing: 4) {
+                Text("Higher when compared to")
+                Text("\(weakerSessionsCount) \(weakerSessionsCount == 1 ? "session" : "sessions")")
             }
-            .frame(width: 300, height: 200)
         }
+        .padding(.vertical, 32)
     }
 }
