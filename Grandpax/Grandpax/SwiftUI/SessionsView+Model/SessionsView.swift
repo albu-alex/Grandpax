@@ -88,6 +88,28 @@ fileprivate struct HeaderView: View {
     }
 }
 
+fileprivate struct EmptySessionView: View {
+    var body: some View {
+        ZStack {
+            Color(Theme.background)
+            VStack(spacing: 48) {
+                Image(systemName: "exclamationmark.circle.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 100, height: 100)
+                Text("Add a session before you can view them")
+                    .font(.title)
+                    .foregroundColor(Color(Theme.textColor))
+                    .multilineTextAlignment(.center)
+                Spacer()
+            }
+            .padding(.top, 80)
+        }
+        .background(Color(Theme.background))
+        .scrollContentBackground(.hidden)
+    }
+}
+
 fileprivate struct MainContentView: View {
     
     // MARK: - State
@@ -108,37 +130,41 @@ fileprivate struct MainContentView: View {
         VStack(alignment: .leading) {
             NavigationView {
                 NavigationView {
-                    List(viewModel.sessions) { session in
-                        NavigationLink {
-                            SessionDetailsView(otherSessions: viewModel.sessions, session: session)
-                                .navigationBarBackButtonHidden(true)
-                        } label: {
-                            Text(session.name)
-                                .foregroundColor(Color(Theme.textColor))
-                                .padding(.vertical, 16)
+                    if viewModel.sessions.count == 0 {
+                        EmptySessionView()
+                    } else {
+                        List(viewModel.sessions) { session in
+                            NavigationLink {
+                                SessionDetailsView(otherSessions: viewModel.sessions, session: session)
+                                    .navigationBarBackButtonHidden(true)
+                            } label: {
+                                Text(session.name)
+                                    .foregroundColor(Color(Theme.textColor))
+                                    .padding(.vertical, 16)
+                            }
+                            .listRowBackground(Color(Theme.accentBackground))
+                            .listRowSeparatorTint(Color(Theme.textColor))
+                            .swipeActions {
+                                Button(action: {
+                                    sessionToBeDeleted = session
+                                    isDeleteAlertPresented = true
+                                }, label: {
+                                    Image(systemName: "trash")
+                                })
+                                .tint(.red)
+                                Button(action: {
+                                    mapSnapshot = session.mapSnapshot
+                                }, label: {
+                                    Image(systemName: "square.and.arrow.up")
+                                })
+                                .tint(.blue)
+                            }
                         }
-                        .listRowBackground(Color(Theme.accentBackground))
-                        .listRowSeparatorTint(Color(Theme.textColor))
-                        .swipeActions {
-                            Button(action: {
-                                sessionToBeDeleted = session
-                                isDeleteAlertPresented = true
-                            }, label: {
-                                Image(systemName: "trash")
-                            })
-                            .tint(.red)
-                            Button(action: {
-                                mapSnapshot = session.mapSnapshot
-                            }, label: {
-                                Image(systemName: "square.and.arrow.up")
-                            })
-                            .tint(.blue)
+                        .background(Color(Theme.background))
+                        .scrollContentBackground(.hidden)
+                        .alert(isPresented: $isDeleteAlertPresented) {
+                            deletionConfirmationAlert(for: sessionToBeDeleted)
                         }
-                    }
-                    .background(Color(Theme.background))
-                    .scrollContentBackground(.hidden)
-                    .alert(isPresented: $isDeleteAlertPresented) {
-                        deletionConfirmationAlert(for: sessionToBeDeleted)
                     }
                 }
             }
