@@ -17,16 +17,16 @@ struct Colors {
     static var shadow: UIColor {
         UIColor(red: 48/255, green: 48/255, blue: 48/255, alpha: 1)
     }
-    static var strongGreen: UIColor {
-        UIColor(red: 96/255, green: 171/255, blue: 162/255, alpha: 1)
+    static var strongBlue: UIColor {
+        UIColor(red: 69/255, green: 96/255, blue: 171/255, alpha: 1)
     }
-    static var mediumStrongGreen: UIColor {
-        UIColor(red: 115/255, green: 179/255, blue: 168/255, alpha: 1)
+    static var mediumStrongBlue: UIColor {
+        UIColor(red: 79/255, green: 115/255, blue: 179/255, alpha: 1)
     }
-    static var mediumLightGreen: UIColor {
-        UIColor(red: 134/255, green: 187/255, blue: 174/255, alpha: 1)
+    static var mediumLightBlue: UIColor {
+        UIColor(red: 89/255, green: 134/255, blue: 187/255, alpha: 1)
     }
-    static var lightGreen: UIColor {
-        UIColor(red: 162/255, green: 204/255, blue: 189/255, alpha: 1)
+    static var lightBlue: UIColor {
+        UIColor(red: 118/255, green: 162/255, blue: 204/255, alpha: 1)
     }
 }
