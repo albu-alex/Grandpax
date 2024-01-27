@@ -19,11 +19,13 @@ struct StatisticsView: View {
     
     // MARK: - States
     
-    @State private var isPresentingAlert = false
+    @State private var isPresentingCautionAlert = false
+    @State private var isPresentingDangerAlert = false
     
     // MARK: - Properties
     
-    private let G_FORCE_TRESHOLD = 7.0
+    private let G_FORCE_TRESHOLD = 4.0
+    private let DANGER_G_FORCE_TRESHOLD = 8.0
     private let SPEED_UNIT = UserDefaultsManager.Settings.isImperialUnitsSelected ? "mph" : "km/h"
     
     private var accelerationCurrent: Double {
@@ -62,8 +64,10 @@ struct StatisticsView: View {
             .padding(.horizontal, 32)
             .padding(.vertical)
             .onChange(of: accelerationCurrent) { newValue in
-                if newValue > G_FORCE_TRESHOLD {
-                    isPresentingAlert = true
+                if newValue > DANGER_G_FORCE_TRESHOLD {
+                    isPresentingDangerAlert = true
+                } else if newValue > G_FORCE_TRESHOLD {
+                    isPresentingCautionAlert = true
                 }
             }
             Spacer()
@@ -80,20 +84,32 @@ struct StatisticsView: View {
         .cornerRadius(20)
         .fixedSize(horizontal: true, vertical: true)
         .shadow(color: Color(Colors.shadow), radius: 5)
-        .alert("Unusual G-Force reading", isPresented: $isPresentingAlert, actions: {}) {
-            Text("For accurate results, hold the phone standstill")
+        .alert("Unusual G-Force reading", isPresented: $isPresentingCautionAlert, actions: {}) {
+            Text("The reading of \(accelerationCurrent) G is equivalent to a small crash. Drive more carefully.")
         }
+        .alert("Unusual G-Force reading", isPresented: $isPresentingDangerAlert, actions: {
+            Button("Yes") {
+                callEmergencyNumber()
+            }
+            Button("No") {
+                isPresentingDangerAlert = false
+            }
+        }) {
+            Text("The reading of \(accelerationCurrent) G is equivalent to a big crash. Do you want to call the emergency number?")
+        }
+    }
+    
+    private func callEmergencyNumber() {
+        
     }
 }
 
 // MARK: - Previews
 
-struct StatisticsView_Previews: PreviewProvider {
-    static var previews: some View {
-        StatisticsView(
-            currentAcceleration: .constant(CMAcceleration()),
-            maximumAcceleration: .constant(CMAcceleration()),
-            currentSpeed: .constant(1),
-            maximumSpeed: .constant(10))
-    }
+#Preview {
+    StatisticsView(
+        currentAcceleration: .constant(CMAcceleration()),
+        maximumAcceleration: .constant(CMAcceleration()),
+        currentSpeed: .constant(1),
+        maximumSpeed: .constant(10))
 }

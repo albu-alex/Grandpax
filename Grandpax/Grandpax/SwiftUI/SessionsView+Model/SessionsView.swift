@@ -196,8 +196,6 @@ fileprivate struct MainContentView: View {
 
 // MARK: - Previews
 
-struct PreviousView_Previews: PreviewProvider {
-    static var previews: some View {
-        SessionsView()
-    }
+#Preview {
+    SessionsView()
 }

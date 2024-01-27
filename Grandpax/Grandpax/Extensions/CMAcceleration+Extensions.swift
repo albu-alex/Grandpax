@@ -10,7 +10,7 @@ import Foundation
 
 extension CMAcceleration: Hashable, Equatable {
     var acceleration: Double {
-        1 + sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2)) / 9.81
+       sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
     }
     
     func isGreater(than acceleration: CMAcceleration) -> Bool {

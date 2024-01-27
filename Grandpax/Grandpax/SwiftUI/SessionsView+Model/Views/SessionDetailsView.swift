@@ -44,7 +44,7 @@ struct SessionDetailsView: View {
                 Spacer()
                 VStack {
                     CategoryComparisonView(
-                        value: "\(String(session.maxSpeed).truncate(to: 6)) \(SPEED_UNIT)",
+                        value: "\(String(session.maxSpeed.convertFromMs()).truncate(to: 6)) \(SPEED_UNIT)",
                         icon: Image(systemName: "speedometer"),
                         category: "Top Speed",
                         weakerSessionsCount: sessionsWeakerForCategory(SessionCategoryEnum.speed)
